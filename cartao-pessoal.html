@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cartão Pessoal | Ernandes Sobreira</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background: radial-gradient(circle at top, #052e16, #020617 60%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:#e5e7eb;
+    }
+
+    .card{
+      width:100%;
+      max-width:440px;
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;
+      padding:22px;
+      border:1px solid #14532d;
+      box-shadow:0 20px 45px rgba(0,0,0,0.7);
+      text-align:center;
+    }
+
+    .avatar{
+      width:96px;
+      height:96px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid #22c55e;
+      box-shadow:0 12px 24px rgba(0,0,0,0.6);
+      margin-bottom:12px;
+    }
+
+    h1{
+      margin:4px 0;
+      font-size:1.4rem;
+    }
+
+    .subtitle{
+      color:#9ca3af;
+      font-size:.9rem;
+      margin-bottom:10px;
+    }
+
+    .tagline{
+      color:#9ca3af;
+      font-size:.8rem;
+      line-height:1.4;
+      margin-bottom:18px;
+    }
+
+    .item{
+      margin-bottom:10px;
+      text-align:left;
+    }
+
+    .label{
+      display:block;
+      font-size:.7rem;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      color:#9ca3af;
+      margin-bottom:2px;
+    }
+
+    .value{
+      font-size:.9rem;
+      color:#e5e7eb;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <img src="foto-perfil.jpg" alt="Foto Ernandes Sobreira" class="avatar">
+
+  <h1>Ernandes Sobreira</h1>
+  <div class="subtitle">Cartão pessoal</div>
+
+  <div class="tagline">
+    Contato direto, PIX e endereço para uso com família, amigos e pessoas de confiança.
+  </div>
+
+  <div class="item">
+    <span class="label">PIX (CPF)</span>
+    <div class="value">008.380.531-14</div>
+  </div>
+
+  <div class="item">
+    <span class="label">Telefone</span>
+    <div class="value">+55 (65) 99932-3724</div>
+  </div>
+
+  <div class="item">
+    <span class="label">Endereço</span>
+    <div class="value">
+      Rua dos Yunes, 311, Massa Barro<br>
+      Cáceres – MT, CEP 78217-248
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
