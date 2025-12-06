@@ -1,648 +1,169 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Painel Pessoal - Perfil & Documentos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    :root {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background-color: #f4f5fb;
-      color: #222;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-    }
-
-    .app-container {
-      width: 100%;
-      max-width: 960px;
-      margin: 24px;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    header {
-      border-bottom: 1px solid #eee;
-      padding-bottom: 12px;
-      margin-bottom: 16px;
-    }
-
-    header h1 {
-      font-size: 1.5rem;
-      margin: 0;
-    }
-
-    header p {
-      margin: 4px 0 0;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    .tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-
-    .tab-button {
-      border: none;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: #e5e8ff;
-      color: #1b2a5b;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
-    }
-
-    .tab-button.active {
-      background: #1b2a5b;
-      color: #fff;
-      box-shadow: 0 3px 8px rgba(27,42,91,0.35);
-    }
-
-    .tab-button.disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
-
-    .tab-content {
-      display: none;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    .section-title {
-      font-size: 1.1rem;
-      margin-top: 8px;
-      margin-bottom: 8px;
-      border-left: 4px solid #1b2a5b;
-      padding-left: 8px;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px 16px;
-      margin-bottom: 16px;
-    }
-
-    label {
-      font-size: 0.82rem;
-      color: #444;
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="url"],
-    input[type="date"],
-    textarea {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 7px 9px;
-      border-radius: 8px;
-      border: 1px solid #d0d4e4;
-      font-size: 0.9rem;
-      outline: none;
-      transition: border 0.1s, box-shadow 0.1s;
-      background: #fafbff;
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: #1b2a5b;
-      box-shadow: 0 0 0 2px rgba(27,42,91,0.12);
-      background: #fff;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 70px;
-    }
-
-    .actions-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .btn {
-      border: none;
-      border-radius: 999px;
-      padding: 8px 14px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: transform 0.08s, box-shadow 0.08s, background 0.08s;
-    }
-
-    .btn-primary {
-      background: #1b2a5b;
-      color: #fff;
-      box-shadow: 0 3px 10px rgba(27,42,91,0.35);
-    }
-
-    .btn-secondary {
-      background: #e5e8ff;
-      color: #1b2a5b;
-    }
-
-    .btn-danger {
-      background: #ffe5e5;
-      color: #8f1b1b;
-    }
-
-    .btn:hover:not(:disabled) {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.16);
-    }
-
-    .btn:active:not(:disabled) {
-      transform: translateY(0);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.16);
-    }
-
-    .btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      box-shadow: none;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.75rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #f2f3ff;
-      color: #333;
-      margin-left: 4px;
-    }
-
-    .doc-list {
-      border-radius: 10px;
-      border: 1px solid #e2e4f0;
-      padding: 10px;
-      background: #fafbff;
-      margin-bottom: 12px;
-    }
-
-    .doc-item {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 8px 10px;
-      align-items: center;
-      padding: 6px 8px;
-      border-radius: 8px;
-      background: #ffffff;
-      margin-bottom: 6px;
-      border: 1px solid #e4e6f2;
-    }
-
-    .doc-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .doc-item-title {
-      font-weight: 500;
-      font-size: 0.88rem;
-    }
-
-    .doc-item small {
-      display: block;
-      font-size: 0.75rem;
-      color: #777;
-    }
-
-    .status-text {
-      font-size: 0.8rem;
-      margin-top: 4px;
-      color: #555;
-    }
-
-    .status-ok {
-      color: #1c7c3b;
-    }
-
-    .status-warn {
-      color: #b35a00;
-    }
-
-    .status-danger {
-      color: #b30021;
-    }
-
-    footer {
-      margin-top: 18px;
-      font-size: 0.75rem;
-      color: #777;
-      text-align: right;
-    }
-
-    @media (max-width: 600px) {
-      .app-container {
-        margin: 12px;
-        padding: 14px;
-      }
-      header h1 {
-        font-size: 1.25rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>MEU MUNDO — Eixo das Transformações</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+    margin:0;
+    font-family:system-ui, Arial, sans-serif;
+    background:#0f172a;
+    color:#e5e7eb;
+}
+header{
+    padding:24px;
+    text-align:center;
+    background:linear-gradient(135deg,#083344,#020617);
+}
+header h1{
+    margin:0;
+    font-size:2rem;
+    letter-spacing:2px;
+}
+header p{
+    margin-top:8px;
+    opacity:.8;
+}
+.tabs{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    padding:12px;
+    background:#020617;
+}
+button.tab{
+    background:#1e293b;
+    border:none;
+    padding:8px 16px;
+    border-radius:999px;
+    color:white;
+    cursor:pointer;
+}
+button.tab.active{
+    background:#0ea5e9;
+    color:#020617;
+}
+section{
+    display:none;
+    padding:24px;
+}
+section.active{
+    display:block;
+}
+.doc{
+    background:#020617;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:10px;
+}
+.tag{
+    background:#0ea5e9;
+    color:#020617;
+    padding:2px 8px;
+    border-radius:999px;
+    font-size:12px;
+}
+a.button{
+    display:inline-block;
+    margin-top:6px;
+    background:#22c55e;
+    color:#022c22;
+    padding:4px 10px;
+    border-radius:999px;
+    text-decoration:none;
+    font-size:13px;
+}
+a.secondary{background:#38bdf8;color:#020617;}
+.footer{
+    text-align:center;
+    padding:20px;
+    opacity:.4;
+}
+</style>
 </head>
 <body>
-  <div class="app-container">
-    <header>
-      <h1>Meu Painel Privado</h1>
-      <p>Perfil & carteira de documentos – dados salvos apenas neste dispositivo.</p>
-    </header>
 
-    <nav class="tabs">
-      <button class="tab-button active" data-tab="perfil">Perfil</button>
-      <button class="tab-button disabled" title="Em breve">Documentos</button>
-      <button class="tab-button disabled" title="Em breve">Finanças</button>
-      <button class="tab-button disabled" title="Em breve">Outros</button>
-    </nav>
+<header>
+<h1>MEU MUNDO</h1>
+<p>Eixo das Transformações — vida, ciência, educação e memória</p>
+</header>
 
-    <!-- ABA PERFIL -->
-    <section id="tab-perfil" class="tab-content active">
-      <h2 class="section-title">Dados pessoais</h2>
-      <div class="form-grid">
-        <div>
-          <label for="nomeCompleto">Nome completo</label>
-          <input type="text" id="nomeCompleto" autocomplete="off">
+<div class="tabs">
+<button class="tab active" onclick="show('perfil')">Perfil</button>
+<button class="tab" onclick="show('docs')">Documentos</button>
+</div>
+
+<section id="perfil" class="active">
+<h2>👤 Seu Hub Pessoal</h2>
+
+<p>Este é seu espaço privado-digital:</p>
+<ul>
+<li>Central de documentos pessoais</li>
+<li>Arquivos seguros em Google Drive e OneDrive</li>
+<li>Acesso global 24h</li>
+<li>Painel mínimo, limpo e independente</li>
+</ul>
+
+<p>Edite todos os dados sempre usando sua planilha:</p>
+
+<a class="button secondary"
+   href="https://docs.google.com/spreadsheets/d/1bROUN6PlhKjax9GEF__qat_Nj5YIo9BBQHPalN2yetk"
+   target="_blank">✏️ Abrir Planilha Fonte</a>
+</section>
+
+<section id="docs">
+<h2>🗂 Carteira de Documentos</h2>
+<div id="list"></div>
+</section>
+
+<div class="footer">© MEU MUNDO — seu painel de vida | GitHub Pages</div>
+
+<script>
+const SHEET_ID = "1bROUN6PlhKjax9GEF__qat_Nj5YIo9BBQHPalN2yetk";
+const SHEET_URL =
+`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+
+async function carregar(){
+    const res = await fetch(SHEET_URL);
+    const txt = await res.text();
+
+    const json = JSON.parse(txt.substring(47).slice(0,-2));
+
+    const linhas = json.table.rows;
+    const lista = document.getElementById("list");
+    lista.innerHTML = "";
+
+    linhas.forEach(row=>{
+        if(!row.c[0]) return;
+
+        const nome = row.c[0].v;
+        const categoria = row.c[1]?.v||"";
+        const gdrive = row.c[2]?.v||"#";
+        const onedrive = row.c[3]?.v||"#";
+
+        lista.innerHTML += `
+        <div class="doc">
+            <strong>${nome}</strong><br>
+            <span class="tag">${categoria}</span><br>
+
+            ${gdrive!=="#" ? `<a class='button' href="${gdrive}" target="_blank">Drive</a>`:""}
+            ${onedrive!=="#" ? `<a class='button secondary' href="${onedrive}" target="_blank">OneDrive</a>`:""}
         </div>
-        <div>
-          <label for="dataNascimento">Data de nascimento</label>
-          <input type="date" id="dataNascimento">
-        </div>
-        <div>
-          <label for="cpf">CPF</label>
-          <input type="text" id="cpf" placeholder="000.000.000-00">
-        </div>
-        <div>
-          <label for="rg">RG</label>
-          <input type="text" id="rg">
-        </div>
-        <div>
-          <label for="cnh">CNH</label>
-          <input type="text" id="cnh">
-        </div>
-        <div>
-          <label for="passaporte">Passaporte</label>
-          <input type="text" id="passaporte">
-        </div>
-        <div>
-          <label for="telefone">Telefone principal</label>
-          <input type="text" id="telefone">
-        </div>
-        <div>
-          <label for="email">E-mail principal</label>
-          <input type="email" id="email">
-        </div>
-      </div>
+        `;
+    });
+}
 
-      <h2 class="section-title">Endereço</h2>
-      <div class="form-grid">
-        <div>
-          <label for="endereco">Endereço completo</label>
-          <textarea id="endereco" placeholder="Rua, número, bairro, cidade, estado, CEP"></textarea>
-        </div>
-      </div>
+function show(id){
+    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
 
-      <h2 class="section-title">Perfis acadêmicos & links rápidos</h2>
-      <div class="form-grid">
-        <div>
-          <label for="lattes">Lattes (URL)</label>
-          <input type="url" id="lattes" placeholder="https://lattes.cnpq.br/...">
-        </div>
-        <div>
-          <label for="orcid">ORCID</label>
-          <input type="text" id="orcid" placeholder="0000-0000-0000-0000">
-        </div>
-        <div>
-          <label for="scholar">Google Scholar</label>
-          <input type="url" id="scholar">
-        </div>
-        <div>
-          <label for="researchgate">ResearchGate</label>
-          <input type="url" id="researchgate">
-        </div>
-        <div>
-          <label for="youtube">YouTube</label>
-          <input type="url" id="youtube">
-        </div>
-        <div>
-          <label for="sitePessoal">Site / portal pessoal</label>
-          <input type="url" id="sitePessoal">
-        </div>
-      </div>
+    document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));
+    event.target.classList.add("active");
+}
 
-      <h2 class="section-title">
-        Carteira de documentos
-        <span class="badge">links GDrive & OneDrive</span>
-      </h2>
+carregar();
+</script>
 
-      <p style="font-size:0.85rem; color:#555; margin-top:0;">
-        Aqui você registra o nome do documento e os links correspondentes no Google Drive e no OneDrive.
-        Os arquivos reais continuam guardados lá; este painel é só a “chave de acesso rápido”.
-      </p>
-
-      <div class="doc-list" id="docList">
-        <!-- itens de documentos aparecem aqui -->
-      </div>
-
-      <div class="actions-row">
-        <button class="btn btn-secondary" id="btnAddDoc">+ Adicionar documento</button>
-      </div>
-
-      <h2 class="section-title">Salvar & Backup</h2>
-      <p class="status-text" id="statusText">Nenhuma ação realizada ainda.</p>
-      <div class="actions-row">
-        <button class="btn btn-primary" id="btnSalvar">
-          💾 Salvar perfil neste dispositivo
-        </button>
-        <button class="btn btn-secondary" id="btnExportar">
-          ⬇️ Exportar backup (.json)
-        </button>
-        <label class="btn btn-secondary" style="cursor:pointer;">
-          ⬆️ Importar backup
-          <input type="file" id="inputImportar" accept="application/json" style="display:none;">
-        </label>
-        <button class="btn btn-danger" id="btnLimpar">
-          🧹 Limpar dados deste dispositivo
-        </button>
-      </div>
-    </section>
-
-    <footer>
-      Este painel é apenas um visualizador local. Não armazene senhas aqui – use um cofre de senhas dedicado.
-    </footer>
-  </div>
-
-  <script>
-    const STORAGE_KEY = 'painelPessoalPerfil_v1';
-
-    const el = (id) => document.getElementById(id);
-
-    const docList = el('docList');
-    const statusText = el('statusText');
-
-    function setStatus(message, type = 'ok') {
-      statusText.textContent = message;
-      statusText.classList.remove('status-ok', 'status-warn', 'status-danger');
-      if (type === 'ok') statusText.classList.add('status-ok');
-      if (type === 'warn') statusText.classList.add('status-warn');
-      if (type === 'danger') statusText.classList.add('status-danger');
-    }
-
-    function createDocItem(data = { nome: '', gdrive: '', onedrive: '' }) {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'doc-item';
-
-      const col1 = document.createElement('div');
-      const labelTitle = document.createElement('div');
-      labelTitle.className = 'doc-item-title';
-      labelTitle.textContent = 'Nome do documento';
-      const inputNome = document.createElement('input');
-      inputNome.type = 'text';
-      inputNome.value = data.nome || '';
-      inputNome.placeholder = 'Ex.: RG, CNH, Passaporte, Diploma...';
-      col1.appendChild(labelTitle);
-      col1.appendChild(inputNome);
-
-      const col2 = document.createElement('div');
-      const labelG = document.createElement('small');
-      labelG.textContent = 'Link Google Drive';
-      const inputG = document.createElement('input');
-      inputG.type = 'url';
-      inputG.value = data.gdrive || '';
-      inputG.placeholder = 'https://drive.google.com/...';
-      col2.appendChild(labelG);
-      col2.appendChild(inputG);
-
-      const col3 = document.createElement('div');
-      const labelO = document.createElement('small');
-      labelO.textContent = 'Link OneDrive';
-      const inputO = document.createElement('input');
-      inputO.type = 'url';
-      inputO.value = data.onedrive || '';
-      inputO.placeholder = 'https://1drv.ms/...';
-      col3.appendChild(labelO);
-      col3.appendChild(inputO);
-
-      const col4 = document.createElement('div');
-      const btnRemover = document.createElement('button');
-      btnRemover.className = 'btn btn-danger';
-      btnRemover.type = 'button';
-      btnRemover.textContent = 'Remover';
-      btnRemover.addEventListener('click', () => {
-        if (confirm('Remover este documento da carteira?')) {
-          wrapper.remove();
-          setStatus('Documento removido. Lembre-se de salvar para registrar a alteração.', 'warn');
-        }
-      });
-      col4.appendChild(btnRemover);
-
-      wrapper.appendChild(col1);
-      wrapper.appendChild(col2);
-      wrapper.appendChild(col3);
-      wrapper.appendChild(col4);
-
-      docList.appendChild(wrapper);
-    }
-
-    function getFormData() {
-      const docs = [];
-      docList.querySelectorAll('.doc-item').forEach(item => {
-        const [col1, col2, col3] = item.querySelectorAll('input');
-        docs.push({
-          nome: col1.value.trim(),
-          gdrive: col2.value.trim(),
-          onedrive: col3.value.trim()
-        });
-      });
-
-      return {
-        nomeCompleto: el('nomeCompleto').value.trim(),
-        dataNascimento: el('dataNascimento').value,
-        cpf: el('cpf').value.trim(),
-        rg: el('rg').value.trim(),
-        cnh: el('cnh').value.trim(),
-        passaporte: el('passaporte').value.trim(),
-        telefone: el('telefone').value.trim(),
-        email: el('email').value.trim(),
-        endereco: el('endereco').value.trim(),
-        lattes: el('lattes').value.trim(),
-        orcid: el('orcid').value.trim(),
-        scholar: el('scholar').value.trim(),
-        researchgate: el('researchgate').value.trim(),
-        youtube: el('youtube').value.trim(),
-        sitePessoal: el('sitePessoal').value.trim(),
-        documentos: docs
-      };
-    }
-
-    function fillForm(data) {
-      if (!data) return;
-      el('nomeCompleto').value = data.nomeCompleto || '';
-      el('dataNascimento').value = data.dataNascimento || '';
-      el('cpf').value = data.cpf || '';
-      el('rg').value = data.rg || '';
-      el('cnh').value = data.cnh || '';
-      el('passaporte').value = data.passaporte || '';
-      el('telefone').value = data.telefone || '';
-      el('email').value = data.email || '';
-      el('endereco').value = data.endereco || '';
-      el('lattes').value = data.lattes || '';
-      el('orcid').value = data.orcid || '';
-      el('scholar').value = data.scholar || '';
-      el('researchgate').value = data.researchgate || '';
-      el('youtube').value = data.youtube || '';
-      el('sitePessoal').value = data.sitePessoal || '';
-
-      docList.innerHTML = '';
-      if (Array.isArray(data.documentos) && data.documentos.length > 0) {
-        data.documentos.forEach(d => createDocItem(d));
-      } else {
-        createDocItem();
-      }
-    }
-
-    function saveToLocal() {
-      try {
-        const data = getFormData();
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-        setStatus('Dados salvos com sucesso neste dispositivo.', 'ok');
-      } catch (err) {
-        console.error(err);
-        setStatus('Erro ao salvar os dados neste dispositivo.', 'danger');
-      }
-    }
-
-    function loadFromLocal() {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) {
-        createDocItem();
-        setStatus('Nenhum dado salvo encontrado. Você pode começar preenchendo o perfil.', 'warn');
-        return;
-      }
-      try {
-        const data = JSON.parse(raw);
-        fillForm(data);
-        setStatus('Dados carregados deste dispositivo.', 'ok');
-      } catch (err) {
-        console.error(err);
-        createDocItem();
-        setStatus('Falha ao ler os dados salvos. Comece do zero ou importe um backup.', 'danger');
-      }
-    }
-
-    function exportBackup() {
-      try {
-        const data = getFormData();
-        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        const nome = data.nomeCompleto || 'perfil';
-        a.href = url;
-        a.download = `backup-painel-${nome.replace(/\s+/g, '_') || 'usuario'}.json`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        setStatus('Backup exportado com sucesso. Guarde o arquivo em local seguro (ex.: OneDrive / Google Drive).', 'ok');
-      } catch (err) {
-        console.error(err);
-        setStatus('Erro ao exportar o backup.', 'danger');
-      }
-    }
-
-    function importBackup(file) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        try {
-          const data = JSON.parse(e.target.result);
-          fillForm(data);
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-          setStatus('Backup importado e salvo neste dispositivo.', 'ok');
-        } catch (err) {
-          console.error(err);
-          setStatus('Arquivo inválido. Certifique-se de que é um backup gerado por este painel.', 'danger');
-        }
-      };
-      reader.readAsText(file, 'utf-8');
-    }
-
-    function clearLocal() {
-      if (!confirm('Tem certeza que deseja apagar todos os dados salvos neste dispositivo?')) return;
-      localStorage.removeItem(STORAGE_KEY);
-      fillForm(null);
-      docList.innerHTML = '';
-      createDocItem();
-      setStatus('Dados apagados deste dispositivo. Nada foi apagado do Google Drive ou OneDrive.', 'warn');
-    }
-
-    function initTabs() {
-      const buttons = document.querySelectorAll('.tab-button');
-      buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          if (btn.classList.contains('disabled')) return;
-          buttons.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          document.querySelectorAll('.tab-content').forEach(sec => sec.classList.remove('active'));
-          const tabId = btn.dataset.tab;
-          if (tabId) {
-            const section = document.getElementById('tab-' + tabId);
-            if (section) section.classList.add('active');
-          }
-        });
-      });
-    }
-
-    function init() {
-      initTabs();
-      loadFromLocal();
-
-      el('btnAddDoc').addEventListener('click', () => {
-        createDocItem();
-        setStatus('Novo documento adicionado. Lembre-se de salvar.', 'warn');
-      });
-
-      el('btnSalvar').addEventListener('click', saveToLocal);
-      el('btnExportar').addEventListener('click', exportBackup);
-      el('btnLimpar').addEventListener('click', clearLocal);
-
-      el('inputImportar').addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (file) {
-          importBackup(file);
-          e.target.value = '';
-        }
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', init);
-  </script>
 </body>
 </html>
