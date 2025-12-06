@@ -400,35 +400,42 @@
         </div>
       </section>
 
-      <!-- DOCUMENTOS -->
+            <!-- DOCUMENTOS -->
       <section id="tab-docs">
-        <h2 class="section-title">Carteira de documentos</h2>
+        <h2 class="section-title">Cartões de contato</h2>
         <p class="section-sub">
-          Os arquivos ficam guardados no Google Drive e no OneDrive. Aqui você só mantém os nomes e links
-          para acesso rápido. A origem é a planilha
-          <a href="https://docs.google.com/spreadsheets/d/1bROUN6PlhKjax9GEF__qat_Nj5YIo9BBQHPalN2yetk/edit?usp=sharing"
-             target="_blank" style="color:var(--primary);text-decoration:none;">
-            “Meu Mundo - Documentos”
-          </a>.
+          Use estes links como “cartãozinho digital”. Eles funcionam em qualquer dispositivo.
         </p>
 
-        <ol class="section-sub" style="font-size:0.82rem;padding-left:18px;">
-          <li>Envie o arquivo para o Google Drive e/ou OneDrive.</li>
-          <li>Copie o link de cada arquivo.</li>
-          <li>Preencha a linha na planilha com <code>nome | categoria | gdrive | onedrive</code>.</li>
-          <li>Clique em “Atualizar lista” abaixo.</li>
-        </ol>
-
         <div class="btn-row">
-          <button class="btn btn-primary" id="btnAtualizarDocs">🔄 Atualizar lista</button>
+          <a class="btn btn-primary"
+             href="https://ernandes-sobreira.github.io/meu-mundo/cartao-profissional.html"
+             target="_blank">💼 Cartão profissional</a>
+
           <a class="btn btn-secondary"
-             href="https://docs.google.com/spreadsheets/d/1bROUN6PlhKjax9GEF__qat_Nj5YIo9BBQHPalN2yetk/edit?usp=sharing"
-             target="_blank">📄 Abrir planilha</a>
+             href="https://ernandes-sobreira.github.io/meu-mundo/cartao-pessoal.html"
+             target="_blank">🏡 Cartão pessoal (PIX)</a>
         </div>
 
-        <div id="docsContainer" class="doc-list"></div>
-        <p id="statusDocs" class="status"></p>
+        <hr style="margin:24px 0;border:0;border-top:1px solid #1e293b;">
+
+        <h2 class="section-title">Documentos pessoais</h2>
+        <p class="section-sub">
+          Envie aqui seus documentos pessoais importantes (RG, CPF, comprovantes, contratos etc.).
+          Os arquivos vão direto para a pasta
+          <strong>MEU-MUNDO &gt; DOCUMENTOS_PESSOAIS</strong> no seu Google Drive.
+        </p>
+
+        <div style="margin-top:12px;">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfaFuiUbrq-dsOm9DPVzJfmYbLPvW9DOej20JOHzduazeLWEQ/viewform?usp=dialog"
+            width="100%"
+            height="720"
+            style="border:none;border-radius:14px;background:#020617;box-shadow:0 0 18px rgba(0,0,0,.6);">
+          </iframe>
+        </div>
       </section>
+    
     </main>
 
     <footer>
@@ -438,65 +445,7 @@
 
   <script>
 
-    // ------------ DOCUMENTOS (Google Sheets) -----------
-    const SHEET_ID = "1bROUN6PlhKjax9GEF__qat_Nj5YIo9BBQHPalN2yetk";
-    const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
-
-    async function carregarDocumentos() {
-      const status = document.getElementById("statusDocs");
-      const container = document.getElementById("docsContainer");
-      status.textContent = "Carregando documentos...";
-      status.className = "status";
-
-      try {
-        const res = await fetch(SHEET_URL);
-        const txt = await res.text();
-        const json = JSON.parse(txt.substring(47).slice(0, -2));
-        const linhas = json.table.rows || [];
-
-        container.innerHTML = "";
-        if (!linhas.length) {
-          container.innerHTML = '<div class="empty">Nenhum documento cadastrado ainda. Use a planilha para adicionar itens.</div>';
-          status.textContent = "Nenhum documento encontrado na planilha.";
-          status.className = "status warn";
-          return;
-        }
-
-        linhas.forEach(row => {
-          if (!row.c[0]) return;
-          const nome = row.c[0].v;
-          const categoria = row.c[1]?.v || "sem categoria";
-          const gdrive = row.c[2]?.v || "";
-          const onedrive = row.c[3]?.v || "";
-
-          const item = document.createElement("div");
-          item.className = "doc-item";
-          item.innerHTML = `
-            <div>
-              <div class="doc-name">${nome}</div>
-              <div class="doc-cat">${categoria}</div>
-            </div>
-            <div class="doc-links">
-              ${gdrive ? `<a class="pill-link drive" href="${gdrive}" target="_blank">🌱 Google Drive</a>` : ""}
-              ${onedrive ? `<a class="pill-link one" href="${onedrive}" target="_blank">☁️ OneDrive</a>` : ""}
-            </div>
-          `;
-          container.appendChild(item);
-        });
-
-        status.textContent = "Documentos carregados da planilha.";
-        status.className = "status ok";
-      } catch (e) {
-        console.error(e);
-        container.innerHTML = '<div class="empty">Não foi possível ler os dados. Verifique a permissão da planilha.</div>';
-        status.textContent = "Erro ao carregar documentos.";
-        status.className = "status error";
-      }
-    }
-
-    document.getElementById("btnAtualizarDocs").addEventListener("click", carregarDocumentos);
-
-    // ------------ TABS -----------
+       // ------------ TABS -----------
     const tabButtons = document.querySelectorAll(".tab-btn");
     const sections = {
       perfil: document.getElementById("tab-perfil"),
