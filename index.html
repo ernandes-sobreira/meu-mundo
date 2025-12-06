@@ -520,33 +520,67 @@
     const PERFIL_KEY = "meuMundo_perfil_v1";
 
     function getPerfilFromForm() {
-      return {
-        nomeCompleto: document.getElementById("nomeCompleto").value.trim(),
-        dataNascimento: document.getElementById("dataNascimento").value,
-        telefone: document.getElementById("telefone").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        lattes: document.getElementById("lattes").value.trim(),
-        scholar: document.getElementById("scholar").value.trim(),
-        youtube: document.getElementById("youtube").value.trim(),
-        instagram: document.getElementById("instagram").value.trim(),
-        siteHub: document.getElementById("siteHub").value.trim(),
-        endereco: document.getElementById("endereco").value.trim()
-      };
-    }
+  return {
+    nomeCompleto: document.getElementById("nomeCompleto").value.trim(),
+    dataNascimento: document.getElementById("dataNascimento").value,
+    telefone: document.getElementById("telefone").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    lattes: document.getElementById("lattes").value.trim(),
+    scholar: document.getElementById("scholar").value.trim(),
+    youtube: document.getElementById("youtube").value.trim(),
+    instagram: document.getElementById("instagram").value.trim(),
+    siteHub: document.getElementById("siteHub").value.trim(),
+    // endereço detalhado
+    endRua: document.getElementById("endRua").value.trim(),
+    endNumero: document.getElementById("endNumero").value.trim(),
+    endBairro: document.getElementById("endBairro").value.trim(),
+    endCidade: document.getElementById("endCidade").value.trim(),
+    endEstado: document.getElementById("endEstado").value.trim(),
+    endCep: document.getElementById("endCep").value.trim(),
+    endComplemento: document.getElementById("endComplemento").value.trim()
+  };
+}
+
 
     function fillPerfilForm(data) {
-      if (!data) return;
-      document.getElementById("nomeCompleto").value = data.nomeCompleto || "Ernandes Sobreira";
-      document.getElementById("dataNascimento").value = data.dataNascimento || "";
-      document.getElementById("telefone").value = data.telefone || "+55 (65) 99932-3724";
-      document.getElementById("email").value = data.email || "";
-      document.getElementById("lattes").value = data.lattes || "http://lattes.cnpq.br/7461346615427709";
-      document.getElementById("scholar").value = data.scholar || "https://scholar.google.com.br/citations?user=4vXRVKsAAAAJ&hl=pt-BR";
-      document.getElementById("youtube").value = data.youtube || "https://www.youtube.com/@ernandessobreira5943";
-      document.getElementById("instagram").value = data.instagram || "@ernandes_sobreira";
-      document.getElementById("siteHub").value = data.siteHub || "https://hub-da-pos-pbx2q58.gamma.site/hubdapos";
-      document.getElementById("endereco").value = data.endereco || "Rua dos Yunes, 311, Massa Barro, Cáceres – MT, CEP 78217-248";
-    }
+  if (!data) data = {};
+
+  document.getElementById("nomeCompleto").value =
+    data.nomeCompleto || "Ernandes Sobreira";
+  document.getElementById("dataNascimento").value =
+    data.dataNascimento || "";
+  document.getElementById("telefone").value =
+    data.telefone || "+55 (65) 99932-3724";
+  document.getElementById("email").value = data.email || "";
+  document.getElementById("lattes").value =
+    data.lattes || "http://lattes.cnpq.br/7461346615427709";
+  document.getElementById("scholar").value =
+    data.scholar ||
+    "https://scholar.google.com.br/citations?user=4vXRVKsAAAAJ&hl=pt-BR";
+  document.getElementById("youtube").value =
+    data.youtube || "https://www.youtube.com/@ernandessobreira5943";
+  document.getElementById("instagram").value =
+    data.instagram || "@ernandes_sobreira";
+  document.getElementById("siteHub").value =
+    data.siteHub || "https://hub-da-pos-pbx2q58.gamma.site/hubdapos";
+
+  // endereço detalhado
+  document.getElementById("endRua").value =
+    data.endRua || "Rua dos Yunes";
+  document.getElementById("endNumero").value =
+    data.endNumero || "311";
+  document.getElementById("endBairro").value =
+    data.endBairro || "Massa Barro";
+  document.getElementById("endCidade").value =
+    data.endCidade || "Cáceres";
+  document.getElementById("endEstado").value =
+    data.endEstado || "MT";
+  document.getElementById("endCep").value =
+    data.endCep || "78217-248";
+  document.getElementById("endComplemento").value =
+    data.endComplemento || "";
+}
+
 
     function setPerfilStatus(msg, cls) {
       const el = document.getElementById("statusPerfil");
