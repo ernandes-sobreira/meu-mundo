@@ -419,10 +419,40 @@
           </div>
         </div>
 
-        <div>
-          <label for="endereco">Endereço (uso pessoal)</label>
-          <textarea id="endereco">Rua dos Yunes, 311, Massa Barro, Cáceres – MT, CEP 78217-248</textarea>
-        </div>
+        <h3 class="section-title" style="margin-top:16px;">Endereço (uso pessoal)</h3>
+
+<div class="grid-two">
+  <div>
+    <label for="endRua">Rua / Logradouro</label>
+    <input id="endRua" type="text" value="Rua dos Yunes" />
+  </div>
+  <div>
+    <label for="endNumero">Número</label>
+    <input id="endNumero" type="text" value="311" />
+  </div>
+  <div>
+    <label for="endBairro">Bairro</label>
+    <input id="endBairro" type="text" value="Massa Barro" />
+  </div>
+  <div>
+    <label for="endCidade">Cidade</label>
+    <input id="endCidade" type="text" value="Cáceres" />
+  </div>
+  <div>
+    <label for="endEstado">Estado</label>
+    <input id="endEstado" type="text" value="MT" />
+  </div>
+  <div>
+    <label for="endCep">CEP</label>
+    <input id="endCep" type="text" value="78217-248" />
+  </div>
+</div>
+
+<div>
+  <label for="endComplemento">Complemento / Referência</label>
+  <textarea id="endComplemento" placeholder="Casa, portão, ponto de referência..."></textarea>
+</div>
+
 
         <div class="btn-row">
           <button class="btn btn-primary" id="btnSalvarPerfil">💾 Salvar perfil neste dispositivo</button>
