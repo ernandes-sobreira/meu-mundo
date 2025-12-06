@@ -130,17 +130,18 @@
       border-color: transparent;
     }
 
-    main {
+        main {
       padding: 16px 18px 20px;
     }
 
-    section {
+    .tab-section {
+      display: block;
+    }
+
+    .tab-section.hidden {
       display: none;
     }
 
-    section.active {
-      display: block;
-    }
 
     .section-title {
       font-size: 1.15rem;
@@ -379,16 +380,17 @@
       <button class="tab-btn" data-tab="docs">🗂 Documentos</button>
     </nav>
 
-    <main>
-           
+       <main>
+      <!-- PERFIL -->
+      <section id="tab-perfil" class="tab-section">
         <hr style="border:none;border-top:1px solid #111827;margin:18px 0 10px;">
 
         <h2 class="section-title">Cartões de contato</h2>
         <p class="section-sub">
-  Dados básicos e links profissionais. Este perfil fica salvo diretamente no site MEU MUNDO
-  (GitHub Pages). Se quiser atualizar alguma informação, basta editar o arquivo <code>index.html</code>
-  no repositório.
-</p>
+          Dados básicos e links profissionais. Este perfil fica salvo diretamente no site MEU MUNDO
+          (GitHub Pages). Se quiser atualizar alguma informação, basta editar o arquivo <code>index.html</code>
+          no repositório.
+        </p>
 
         <div class="btn-row">
           <a class="btn btn-primary" href="cartao-profissional.html" target="_blank">
@@ -400,7 +402,7 @@
         </div>
       </section>
 
-                        <!-- DOCUMENTOS -->
+      <!-- DOCUMENTOS -->
       <section id="tab-docs" class="tab-section hidden">
         <h2 class="section-title">Cartões de contato</h2>
         <p class="section-sub">
@@ -436,6 +438,7 @@
         </div>
       </section>
     </main>
+
 
     <footer>
       Este painel não guarda senhas. Documentos reais permanecem no seu Google Drive (e, se quiser, também no OneDrive).
