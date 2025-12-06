@@ -1,169 +1,262 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>MEU MUNDO — Eixo das Transformações</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body{
-    margin:0;
-    font-family:system-ui, Arial, sans-serif;
-    background:#0f172a;
-    color:#e5e7eb;
-}
-header{
-    padding:24px;
-    text-align:center;
-    background:linear-gradient(135deg,#083344,#020617);
-}
-header h1{
-    margin:0;
-    font-size:2rem;
-    letter-spacing:2px;
-}
-header p{
-    margin-top:8px;
-    opacity:.8;
-}
-.tabs{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    padding:12px;
-    background:#020617;
-}
-button.tab{
-    background:#1e293b;
-    border:none;
-    padding:8px 16px;
-    border-radius:999px;
-    color:white;
-    cursor:pointer;
-}
-button.tab.active{
-    background:#0ea5e9;
-    color:#020617;
-}
-section{
-    display:none;
-    padding:24px;
-}
-section.active{
-    display:block;
-}
-.doc{
-    background:#020617;
-    padding:12px;
-    border-radius:12px;
-    margin-bottom:10px;
-}
-.tag{
-    background:#0ea5e9;
-    color:#020617;
-    padding:2px 8px;
-    border-radius:999px;
-    font-size:12px;
-}
-a.button{
-    display:inline-block;
-    margin-top:6px;
-    background:#22c55e;
-    color:#022c22;
-    padding:4px 10px;
-    border-radius:999px;
-    text-decoration:none;
-    font-size:13px;
-}
-a.secondary{background:#38bdf8;color:#020617;}
-.footer{
-    text-align:center;
-    padding:20px;
-    opacity:.4;
-}
-</style>
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <title>Meu Mundo | Painel Pessoal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg-main: #020617;
+      --bg-card: #020617;
+      --bg-soft: #0b1220;
+      --primary: #0ea5e9;
+      --accent: #22c55e;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --danger: #f97373;
+      --radius-lg: 18px;
+    }
 
-<header>
-<h1>MEU MUNDO</h1>
-<p>Eixo das Transformações — vida, ciência, educação e memória</p>
-</header>
+    * {
+      box-sizing: border-box;
+    }
 
-<div class="tabs">
-<button class="tab active" onclick="show('perfil')">Perfil</button>
-<button class="tab" onclick="show('docs')">Documentos</button>
-</div>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 60%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+    }
 
-<section id="perfil" class="active">
-<h2>👤 Seu Hub Pessoal</h2>
+    /* LAYOUT */
 
-<p>Este é seu espaço privado-digital:</p>
-<ul>
-<li>Central de documentos pessoais</li>
-<li>Arquivos seguros em Google Drive e OneDrive</li>
-<li>Acesso global 24h</li>
-<li>Painel mínimo, limpo e independente</li>
-</ul>
+    .sidebar {
+      width: 260px;
+      background: linear-gradient(180deg, #020617, #020617 60%, #030712);
+      border-right: 1px solid #111827;
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
 
-<p>Edite todos os dados sempre usando sua planilha:</p>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-<a class="button secondary"
-   href="https://docs.google.com/spreadsheets/d/1bROUN6PlhKjax9GEF__qat_Nj5YIo9BBQHPalN2yetk"
-   target="_blank">✏️ Abrir Planilha Fonte</a>
-</section>
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 20% 20%, #22c55e, #0ea5e9 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #020617;
+      box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+    }
 
-<section id="docs">
-<h2>🗂 Carteira de Documentos</h2>
-<div id="list"></div>
-</section>
+    .brand-text h1 {
+      font-size: 1.05rem;
+      margin: 0;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
 
-<div class="footer">© MEU MUNDO — seu painel de vida | GitHub Pages</div>
+    .brand-text span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
 
-<script>
-const SHEET_ID = "1bROUN6PlhKjax9GEF__qat_Nj5YIo9BBQHPalN2yetk";
-const SHEET_URL =
-`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+    .nav-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
 
-async function carregar(){
-    const res = await fetch(SHEET_URL);
-    const txt = await res.text();
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
 
-    const json = JSON.parse(txt.substring(47).slice(0,-2));
+    .nav-item {
+      border-radius: 999px;
+      padding: 7px 11px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      transition: background 0.15s, color 0.15s, transform 0.1s;
+    }
 
-    const linhas = json.table.rows;
-    const lista = document.getElementById("list");
-    lista.innerHTML = "";
+    .nav-item span.label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-    linhas.forEach(row=>{
-        if(!row.c[0]) return;
+    .nav-item .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #4b5563;
+    }
 
-        const nome = row.c[0].v;
-        const categoria = row.c[1]?.v||"";
-        const gdrive = row.c[2]?.v||"#";
-        const onedrive = row.c[3]?.v||"#";
+    .nav-item.active {
+      background: rgba(14, 165, 233, 0.12);
+      color: var(--primary);
+      transform: translateX(2px);
+    }
 
-        lista.innerHTML += `
-        <div class="doc">
-            <strong>${nome}</strong><br>
-            <span class="tag">${categoria}</span><br>
+    .nav-item.active .dot {
+      background: var(--primary);
+      box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.25);
+    }
 
-            ${gdrive!=="#" ? `<a class='button' href="${gdrive}" target="_blank">Drive</a>`:""}
-            ${onedrive!=="#" ? `<a class='button secondary' href="${onedrive}" target="_blank">OneDrive</a>`:""}
-        </div>
-        `;
-    });
-}
+    .nav-item.badge::after {
+      content: "em breve";
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: #111827;
+      color: #6b7280;
+    }
 
-function show(id){
-    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
+    .sidebar-footer {
+      margin-top: auto;
+      font-size: 0.7rem;
+      color: #4b5563;
+    }
 
-    document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));
-    event.target.classList.add("active");
-}
+    .sidebar-footer strong {
+      color: var(--primary);
+      font-weight: 500;
+    }
 
-carregar();
-</script>
+    /* MAIN */
 
-</body>
-</html>
+    .main {
+      flex: 1;
+      padding: 22px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .topbar-title h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .topbar-title span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.75rem;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid #111827;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.3);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #020617, #020617 55%);
+      border-radius: var(--radius-lg);
+      border: 1px solid #111827;
+      padding: 16px 18px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    .card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .badge-soft {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      margin: 4px 0 10px;
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* PERFIL */
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repea
