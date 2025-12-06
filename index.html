@@ -259,4 +259,629 @@
 
     .grid-two {
       display: grid;
-      grid-template-columns: repea
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px 14px;
+      margin-top: 10px;
+    }
+
+    label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 7px 9px;
+      border-radius: 10px;
+      border: 1px solid #111827;
+      background: #020617;
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border 0.12s, box-shadow 0.12s, background 0.12s;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.6);
+      background: #020617;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.12s, transform 0.08s, box-shadow 0.12s,
+        opacity 0.12s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #020617;
+      box-shadow: 0 12px 28px rgba(14, 165, 233, 0.35);
+    }
+
+    .btn-secondary {
+      background: #020617;
+      border: 1px solid #1f2937;
+      color: var(--text-muted);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px dashed #374151;
+      color: var(--text-muted);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+      opacity: 0.95;
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+    }
+
+    /* DOCUMENTOS */
+
+    .doc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+      max-height: 460px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .doc-item {
+      border-radius: 12px;
+      border: 1px solid #111827;
+      padding: 9px 11px;
+      background: linear-gradient(120deg, #020617, #020617 60%, #020617);
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: 6px 14px;
+      align-items: center;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+    }
+
+    .doc-main-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .doc-cat {
+      font-size: 0.7rem;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid #1e293b;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .doc-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .link-pill {
+      font-size: 0.75rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #1f2937;
+    }
+
+    .link-pill.drive {
+      background: rgba(34, 197, 94, 0.12);
+      color: #bbf7d0;
+      border-color: rgba(34, 197, 94, 0.45);
+    }
+
+    .link-pill.one {
+      background: rgba(59, 130, 246, 0.12);
+      color: #bfdbfe;
+      border-color: rgba(59, 130, 246, 0.45);
+    }
+
+    .empty-state {
+      border-radius: 12px;
+      border: 1px dashed #1f2937;
+      padding: 10px 12px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.7);
+      margin-top: 8px;
+    }
+
+    .status {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .status.ok {
+      color: #4ade80;
+    }
+
+    .status.warn {
+      color: #facc15;
+    }
+
+    .status.error {
+      color: var(--danger);
+    }
+
+    @media (max-width: 880px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+        padding-bottom: 10px;
+      }
+
+      .nav-title {
+        display: none;
+      }
+
+      .nav-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .nav-item {
+        padding: 5px 10px;
+      }
+
+      .sidebar-footer {
+        display: none;
+      }
+
+      .main {
+        padding: 16px;
+      }
+
+      .content {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">MM</div>
+      <div class="brand-text">
+        <h1>MEU MUNDO</h1>
+        <span>Eixo das Transformações</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="nav-title">Painel</div>
+      <ul class="nav-list">
+        <li class="nav-item active" data-tab="perfil">
+          <span class="label">
+            <span class="dot"></span> Perfil
+          </span>
+        </li>
+        <li class="nav-item" data-tab="documentos">
+          <span class="label">
+            <span class="dot"></span> Documentos
+          </span>
+        </li>
+        <li class="nav-item badge" data-tab="futuro">
+          <span class="label">
+            <span class="dot"></span> Finanças
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      este painel mostra apenas referências e links. <br />
+      os arquivos reais permanecem nos seus <strong>drives seguros</strong>.
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-title">
+        <h2>Painel pessoal</h2>
+        <span>
+          Seu hub central de documentos e referências — acessível de qualquer
+          lugar.
+        </span>
+      </div>
+      <div class="pill">
+        <span class="pill-dot"></span>
+        online • meu mundo
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- COLUNA ESQUERDA -->
+      <section id="tab-perfil" class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Seção principal</div>
+            <h3 class="section-title">Perfil & acesso rápido</h3>
+          </div>
+          <span class="badge-soft">Privado para uso pessoal</span>
+        </div>
+
+        <p class="muted">
+          Aqui você organiza seus dados principais. As informações digitadas
+          ficam salvas apenas neste dispositivo, em armazenamento local
+          (localStorage). Para sincronizar entre computadores, você pode
+          exportar um backup mais tarde.
+        </p>
+
+        <div class="grid-two" style="margin-top: 12px">
+          <div>
+            <label for="nomeCompleto">Nome completo</label>
+            <input id="nomeCompleto" type="text" autocomplete="off" />
+          </div>
+          <div>
+            <label for="dataNascimento">Data de nascimento</label>
+            <input id="dataNascimento" type="date" />
+          </div>
+          <div>
+            <label for="telefone">Telefone principal</label>
+            <input id="telefone" type="text" />
+          </div>
+          <div>
+            <label for="email">E-mail principal</label>
+            <input id="email" type="email" />
+          </div>
+        </div>
+
+        <div class="grid-two" style="margin-top: 10px">
+          <div>
+            <label for="lattes">Lattes</label>
+            <input
+              id="lattes"
+              type="url"
+              placeholder="https://lattes.cnpq.br/..."
+            />
+          </div>
+          <div>
+            <label for="orcid">ORCID</label>
+            <input id="orcid" type="text" placeholder="0000-0000-0000-0000" />
+          </div>
+          <div>
+            <label for="scholar">Google Scholar</label>
+            <input id="scholar" type="url" />
+          </div>
+          <div>
+            <label for="youtube">YouTube</label>
+            <input id="youtube" type="url" />
+          </div>
+        </div>
+
+        <div style="margin-top: 10px">
+          <label for="endereco">Endereço</label>
+          <textarea
+            id="endereco"
+            placeholder="Rua, número, bairro, cidade, estado, CEP"
+          ></textarea>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" id="btnSalvarPerfil">
+            💾 Salvar perfil neste dispositivo
+          </button>
+          <button class="btn btn-secondary" id="btnCarregarPerfil">
+            🔄 Recarregar dados salvos
+          </button>
+          <button class="btn btn-ghost" id="btnLimparPerfil">
+            🧹 Limpar perfil deste dispositivo
+          </button>
+        </div>
+
+        <p id="statusPerfil" class="status"></p>
+      </section>
+
+      <!-- COLUNA DIREITA -->
+      <section id="tab-documentos" class="card" style="display: none">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Carteira de documentos</div>
+            <h3 class="section-title">Arquivos em Google Drive & OneDrive</h3>
+          </div>
+          <span class="badge-soft">Dados lidos da planilha</span>
+        </div>
+
+        <p class="muted">
+          Para <strong>adicionar um documento</strong>:
+        </p>
+        <ol class="muted" style="font-size: 0.82rem; padding-left: 18px">
+          <li>Envie o arquivo para o seu Google Drive e/ou OneDrive.</li>
+          <li>Copie os links de compartilhamento (apenas para você ou para
+            quem desejar).</li>
+          <li>
+            Abra a planilha
+            <a
+              href="https://docs.google.com/spreadsheets/d/1bROUN6PlhKjax9GEF__qat_Nj5YIo9BBQHPalN2yetk/edit?usp=sharing"
+              target="_blank"
+              style="color: var(--primary); text-decoration: none"
+              >“Meu Mundo - Documentos”</a
+            >
+            e preencha as colunas:
+            <code>nome | categoria | gdrive | onedrive</code>.
+          </li>
+          <li>Ao salvar, clique abaixo em “Atualizar lista” e o documento
+            aparecerá aqui.</li>
+        </ol>
+
+        <div class="btn-row" style="margin-top: 8px">
+          <button class="btn btn-primary" id="btnAtualizarDocs">
+            🔄 Atualizar lista
+          </button>
+          <a
+            class="btn btn-secondary"
+            href="https://docs.google.com/spreadsheets/d/1bROUN6PlhKjax9GEF__qat_Nj5YIo9BBQHPalN2yetk/edit?usp=sharing"
+            target="_blank"
+            >📄 Abrir planilha de documentos</a
+          >
+        </div>
+
+        <div id="docsContainer" class="doc-list"></div>
+        <p id="statusDocs" class="status"></p>
+      </section>
+
+      <section id="tab-futuro" class="card" style="display: none">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Próximos módulos</div>
+            <h3 class="section-title">Finanças, projetos & mais</h3>
+          </div>
+          <span class="badge-soft">em construção</span>
+        </div>
+
+        <p class="muted">
+          Este espaço vai receber, em breve, módulos para controle financeiro
+          pessoal, planejamento de projetos, registro de viagens e outras
+          camadas do seu mundo. A ideia é manter tudo integrado, leve e com
+          foco em decisões importantes — sem poluição visual.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // --------- PERFIL (LOCAL STORAGE) -----------
+    const PERFIL_KEY = "meuMundo_perfil_v1";
+
+    function getPerfilFromForm() {
+      return {
+        nomeCompleto: document.getElementById("nomeCompleto").value.trim(),
+        dataNascimento: document.getElementById("dataNascimento").value,
+        telefone: document.getElementById("telefone").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        lattes: document.getElementById("lattes").value.trim(),
+        orcid: document.getElementById("orcid").value.trim(),
+        scholar: document.getElementById("scholar").value.trim(),
+        youtube: document.getElementById("youtube").value.trim(),
+        endereco: document.getElementById("endereco").value.trim(),
+      };
+    }
+
+    function fillPerfilForm(data) {
+      if (!data) return;
+      document.getElementById("nomeCompleto").value =
+        data.nomeCompleto || "";
+      document.getElementById("dataNascimento").value =
+        data.dataNascimento || "";
+      document.getElementById("telefone").value = data.telefone || "";
+      document.getElementById("email").value = data.email || "";
+      document.getElementById("lattes").value = data.lattes || "";
+      document.getElementById("orcid").value = data.orcid || "";
+      document.getElementById("scholar").value = data.scholar || "";
+      document.getElementById("youtube").value = data.youtube || "";
+      document.getElementById("endereco").value = data.endereco || "";
+    }
+
+    function setPerfilStatus(msg, cls) {
+      const el = document.getElementById("statusPerfil");
+      el.textContent = msg;
+      el.className = "status " + (cls || "");
+    }
+
+    function savePerfil() {
+      try {
+        const data = getPerfilFromForm();
+        localStorage.setItem(PERFIL_KEY, JSON.stringify(data));
+        setPerfilStatus("Perfil salvo neste dispositivo.", "ok");
+      } catch (e) {
+        console.error(e);
+        setPerfilStatus("Erro ao salvar o perfil.", "error");
+      }
+    }
+
+    function loadPerfil() {
+      try {
+        const raw = localStorage.getItem(PERFIL_KEY);
+        if (!raw) {
+          setPerfilStatus(
+            "Nenhum perfil salvo ainda neste dispositivo.",
+            "warn"
+          );
+          return;
+        }
+        const data = JSON.parse(raw);
+        fillPerfilForm(data);
+        setPerfilStatus("Perfil carregado deste dispositivo.", "ok");
+      } catch (e) {
+        console.error(e);
+        setPerfilStatus("Erro ao carregar o perfil salvo.", "error");
+      }
+    }
+
+    function clearPerfil() {
+      if (
+        !confirm(
+          "Tem certeza que deseja limpar o perfil salvo neste dispositivo?"
+        )
+      )
+        return;
+      localStorage.removeItem(PERFIL_KEY);
+      fillPerfilForm({});
+      setPerfilStatus("Perfil apagado deste dispositivo.", "warn");
+    }
+
+    document
+      .getElementById("btnSalvarPerfil")
+      .addEventListener("click", savePerfil);
+    document
+      .getElementById("btnCarregarPerfil")
+      .addEventListener("click", loadPerfil);
+    document
+      .getElementById("btnLimparPerfil")
+      .addEventListener("click", clearPerfil);
+
+    // --------- DOCUMENTOS (GOOGLE SHEETS) -----------
+
+    const SHEET_ID =
+      "1bROUN6PlhKjax9GEF__qat_Nj5YIo9BBQHPalN2yetk";
+    const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+
+    async function carregarDocumentos() {
+      const status = document.getElementById("statusDocs");
+      const container = document.getElementById("docsContainer");
+      status.textContent = "Carregando documentos...";
+      status.className = "status";
+
+      try {
+        const res = await fetch(SHEET_URL);
+        const txt = await res.text();
+        const json = JSON.parse(txt.substring(47).slice(0, -2));
+        const linhas = json.table.rows || [];
+
+        container.innerHTML = "";
+        if (!linhas.length) {
+          container.innerHTML =
+            '<div class="empty-state">Nenhum documento cadastrado ainda. Use a planilha para adicionar itens.</div>';
+          status.textContent = "Nenhum documento encontrado na planilha.";
+          status.className = "status warn";
+          return;
+        }
+
+        linhas.forEach((row) => {
+          if (!row.c[0]) return;
+          const nome = row.c[0].v;
+          const categoria = row.c[1]?.v || "sem categoria";
+          const gdrive = row.c[2]?.v || "";
+          const onedrive = row.c[3]?.v || "";
+
+          const item = document.createElement("div");
+          item.className = "doc-item";
+          item.innerHTML = `
+            <div>
+              <div class="doc-main-title">${nome}</div>
+              <span class="doc-cat">${categoria}</span>
+            </div>
+            <div class="doc-links">
+              ${
+                gdrive
+                  ? `<a class="link-pill drive" href="${gdrive}" target="_blank">🌱 Google Drive</a>`
+                  : ""
+              }
+              ${
+                onedrive
+                  ? `<a class="link-pill one" href="${onedrive}" target="_blank">☁️ OneDrive</a>`
+                  : ""
+              }
+            </div>
+          `;
+          container.appendChild(item);
+        });
+
+        status.textContent =
+          "Documentos carregados da planilha com sucesso.";
+        status.className = "status ok";
+      } catch (e) {
+        console.error(e);
+        container.innerHTML =
+          '<div class="empty-state">Não foi possível ler os dados. Verifique a permissão da planilha e tente novamente.</div>';
+        status.textContent = "Erro ao carregar documentos.";
+        status.className = "status error";
+      }
+    }
+
+    document
+      .getElementById("btnAtualizarDocs")
+      .addEventListener("click", carregarDocumentos);
+
+    // ---------- TABS / NAVEGAÇÃO LATERAL ---------
+
+    const navItems = document.querySelectorAll(".nav-item");
+    const tabs = {
+      perfil: document.getElementById("tab-perfil"),
+      documentos: document.getElementById("tab-documentos"),
+      futuro: document.getElementById("tab-futuro"),
+    };
+
+    navItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const tab = item.dataset.tab;
+        if (!tab) return;
+
+        navItems.forEach((n) => n.classList.remove("active"));
+        item.classList.add("active");
+
+        Object.keys(tabs).forEach((key) => {
+          tabs[key].style.display = key === tab ? "block" : "none";
+        });
+
+        if (tab === "documentos") {
+          carregarDocumentos();
+        }
+      });
+    });
+
+    // Carregar perfil automaticamente, se existir
+    loadPerfil();
+  </script>
+</body>
+</html>
