@@ -466,22 +466,15 @@
   <label for="endComplemento">Complemento / Referência</label>
   <textarea id="endComplemento" placeholder="Casa, portão, ponto de referência..."></textarea>
 </div>
-
-
-        <div class="btn-row">
-          <button class="btn btn-primary" id="btnSalvarPerfil">💾 Salvar perfil neste dispositivo</button>
-          <button class="btn btn-secondary" id="btnCarregarPerfil">🔄 Recarregar dados salvos</button>
-          <button class="btn btn-ghost" id="btnLimparPerfil">🧹 Limpar perfil deste dispositivo</button>
-        </div>
-        <p id="statusPerfil" class="status"></p>
-
+       
         <hr style="border:none;border-top:1px solid #111827;margin:18px 0 10px;">
 
         <h2 class="section-title">Cartões de contato</h2>
         <p class="section-sub">
-          Use estes links como “cartãozinho digital”. Eles funcionam em qualquer dispositivo e têm QR Code
-          para alguém apontar a câmera e salvar seus dados.
-        </p>
+  Dados básicos e links profissionais. Este perfil fica salvo diretamente no site MEU MUNDO
+  (GitHub Pages). Se quiser atualizar alguma informação, basta editar o arquivo <code>index.html</code>
+  no repositório.
+</p>
 
         <div class="btn-row">
           <a class="btn btn-primary" href="cartao-profissional.html" target="_blank">
@@ -530,115 +523,6 @@
   </div>
 
   <script>
-    // ------------ PERFIL (localStorage) -----------
-    const PERFIL_KEY = "meuMundo_perfil_v1";
-
-    function getPerfilFromForm() {
-  return {
-    nomeCompleto: document.getElementById("nomeCompleto").value.trim(),
-    dataNascimento: document.getElementById("dataNascimento").value,
-    telefone: document.getElementById("telefone").value.trim(),
-    email: document.getElementById("email").value.trim(),
-    lattes: document.getElementById("lattes").value.trim(),
-    scholar: document.getElementById("scholar").value.trim(),
-    youtube: document.getElementById("youtube").value.trim(),
-    instagram: document.getElementById("instagram").value.trim(),
-    siteHub: document.getElementById("siteHub").value.trim(),
-    // endereço detalhado
-    endRua: document.getElementById("endRua").value.trim(),
-    endNumero: document.getElementById("endNumero").value.trim(),
-    endBairro: document.getElementById("endBairro").value.trim(),
-    endCidade: document.getElementById("endCidade").value.trim(),
-    endEstado: document.getElementById("endEstado").value.trim(),
-    endCep: document.getElementById("endCep").value.trim(),
-    endComplemento: document.getElementById("endComplemento").value.trim()
-  };
-}
-
-
-    function fillPerfilForm(data) {
-  if (!data) data = {};
-
-  document.getElementById("nomeCompleto").value =
-    data.nomeCompleto || "Ernandes Sobreira";
-  document.getElementById("dataNascimento").value =
-    data.dataNascimento || "";
-  document.getElementById("telefone").value =
-    data.telefone || "+55 (65) 99932-3724";
-  document.getElementById("email").value = data.email || "";
-  document.getElementById("lattes").value =
-    data.lattes || "http://lattes.cnpq.br/7461346615427709";
-  document.getElementById("scholar").value =
-    data.scholar ||
-    "https://scholar.google.com.br/citations?user=4vXRVKsAAAAJ&hl=pt-BR";
-  document.getElementById("youtube").value =
-    data.youtube || "https://www.youtube.com/@ernandessobreira5943";
-  document.getElementById("instagram").value =
-    data.instagram || "@ernandes_sobreira";
-  document.getElementById("siteHub").value =
-    data.siteHub || "https://hub-da-pos-pbx2q58.gamma.site/hubdapos";
-
-  // endereço detalhado
-  document.getElementById("endRua").value =
-    data.endRua || "Rua dos Yunes";
-  document.getElementById("endNumero").value =
-    data.endNumero || "311";
-  document.getElementById("endBairro").value =
-    data.endBairro || "Massa Barro";
-  document.getElementById("endCidade").value =
-    data.endCidade || "Cáceres";
-  document.getElementById("endEstado").value =
-    data.endEstado || "MT";
-  document.getElementById("endCep").value =
-    data.endCep || "78217-248";
-  document.getElementById("endComplemento").value =
-    data.endComplemento || "";
-}
-
-
-    function setPerfilStatus(msg, cls) {
-      const el = document.getElementById("statusPerfil");
-      el.textContent = msg;
-      el.className = "status " + (cls || "");
-    }
-
-    function savePerfil() {
-      try {
-        const data = getPerfilFromForm();
-        localStorage.setItem(PERFIL_KEY, JSON.stringify(data));
-        setPerfilStatus("Perfil salvo neste dispositivo.", "ok");
-      } catch (e) {
-        console.error(e);
-        setPerfilStatus("Erro ao salvar o perfil.", "error");
-      }
-    }
-
-    function loadPerfil() {
-      try {
-        const raw = localStorage.getItem(PERFIL_KEY);
-        if (!raw) {
-          setPerfilStatus("Nenhum perfil salvo ainda neste dispositivo.", "warn");
-          return;
-        }
-        const data = JSON.parse(raw);
-        fillPerfilForm(data);
-        setPerfilStatus("Perfil carregado deste dispositivo.", "ok");
-      } catch (e) {
-        console.error(e);
-        setPerfilStatus("Erro ao carregar o perfil salvo.", "error");
-      }
-    }
-
-    function clearPerfil() {
-      if (!confirm("Tem certeza que deseja limpar o perfil salvo neste dispositivo?")) return;
-      localStorage.removeItem(PERFIL_KEY);
-      fillPerfilForm({});
-      setPerfilStatus("Perfil apagado deste dispositivo.", "warn");
-    }
-
-    document.getElementById("btnSalvarPerfil").addEventListener("click", savePerfil);
-    document.getElementById("btnCarregarPerfil").addEventListener("click", loadPerfil);
-    document.getElementById("btnLimparPerfil").addEventListener("click", clearPerfil);
 
     // ------------ DOCUMENTOS (Google Sheets) -----------
     const SHEET_ID = "1bROUN6PlhKjax9GEF__qat_Nj5YIo9BBQHPalN2yetk";
@@ -721,9 +605,6 @@
       });
     });
 
-    // Carregar perfil automaticamente se existir
-    fillPerfilForm({});
-    loadPerfil();
-  </script>
+   </script>
 </body>
 </html>
