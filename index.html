@@ -400,8 +400,8 @@
         </div>
       </section>
 
-                  <!-- DOCUMENTOS -->
-      <section id="tab-docs">
+                        <!-- DOCUMENTOS -->
+      <section id="tab-docs" class="tab-section hidden">
         <h2 class="section-title">Cartões de contato</h2>
         <p class="section-sub">
           Use estes links como “cartãozinho digital”. Eles funcionam em qualquer dispositivo.
@@ -435,17 +435,15 @@
           </iframe>
         </div>
       </section>
-   
     </main>
 
     <footer>
-      Este painel não guarda senhas. Documentos reais permanecem nos seus drives (Google / OneDrive).
+      Este painel não guarda senhas. Documentos reais permanecem no seu Google Drive (e, se quiser, também no OneDrive).
     </footer>
   </div>
 
   <script>
-
-       // ------------ TABS -----------
+    // ------------ TABS -----------
     const tabButtons = document.querySelectorAll(".tab-btn");
     const sections = {
       perfil: document.getElementById("tab-perfil"),
@@ -455,19 +453,18 @@
     tabButtons.forEach(btn => {
       btn.addEventListener("click", () => {
         const tab = btn.dataset.tab;
+
         tabButtons.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
-        Object.keys(sections).forEach(key => {
-          sections[key].classList.toggle("active", key === tab);
-        });
-
-        if (tab === "docs") {
-          carregarDocumentos();
-        }
+        Object.values(sections).forEach(sec => sec.classList.add("hidden"));
+        sections[tab].classList.remove("hidden");
       });
     });
 
-   </script>
+    // deixa a aba de perfil visível ao carregar
+    sections.perfil.classList.remove("hidden");
+    sections.docs.classList.add("hidden");
+  </script>
 </body>
 </html>
