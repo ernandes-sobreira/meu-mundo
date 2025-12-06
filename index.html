@@ -576,28 +576,32 @@
           </div>
         </div>
 
-        <div class="grid-two" style="margin-top: 10px">
-          <div>
-            <label for="lattes">Lattes</label>
-            <input
-              id="lattes"
-              type="url"
-              placeholder="https://lattes.cnpq.br/..."
-            />
-          </div>
-          <div>
-            <label for="orcid">ORCID</label>
-            <input id="orcid" type="text" placeholder="0000-0000-0000-0000" />
-          </div>
-          <div>
-            <label for="scholar">Google Scholar</label>
-            <input id="scholar" type="url" />
-          </div>
-          <div>
-            <label for="youtube">YouTube</label>
-            <input id="youtube" type="url" />
-          </div>
-        </div>
+       <div class="grid-two" style="margin-top: 10px">
+  <div>
+    <label for="lattes">Lattes</label>
+    <input id="lattes" type="url" placeholder="https://lattes.cnpq.br/..." />
+  </div>
+  <div>
+    <label for="orcid">ORCID</label>
+    <input id="orcid" type="text" placeholder="0000-0000-0000-0000" />
+  </div>
+  <div>
+    <label for="scholar">Google Scholar</label>
+    <input id="scholar" type="url" />
+  </div>
+  <div>
+    <label for="youtube">YouTube</label>
+    <input id="youtube" type="url" />
+  </div>
+  <div>
+    <label for="instagram">Instagram</label>
+    <input id="instagram" type="text" placeholder="@ernandes_sobreira" />
+  </div>
+  <div>
+    <label for="siteHub">Site / Hub da Pós</label>
+    <input id="siteHub" type="url" placeholder="https://hub-da-pos-pbx2q58.gamma.site/hubdapos" />
+  </div>
+</div>
 
         <div style="margin-top: 10px">
           <label for="endereco">Endereço</label>
@@ -618,6 +622,23 @@
             🧹 Limpar perfil deste dispositivo
           </button>
         </div>
+        <div style="margin-top: 16px">
+  <div class="card-title">Cartões de contato</div>
+  <h3 class="section-title" style="margin-top: 4px;">Compartilhar meu mundo</h3>
+  <p class="muted">
+    Use estes cartões para compartilhar seus contatos. O profissional é ideal para trabalho e currículo;
+    o pessoal traz informações de PIX e endereço.
+  </p>
+  <div class="btn-row">
+    <a class="btn btn-primary" href="cartao-profissional.html" target="_blank">
+      💼 Ver cartão profissional
+    </a>
+    <a class="btn btn-secondary" href="cartao-pessoal.html" target="_blank">
+      🏡 Ver cartão pessoal (PIX)
+    </a>
+  </div>
+</div>
+
 
         <p id="statusPerfil" class="status"></p>
       </section>
@@ -694,33 +715,36 @@
     const PERFIL_KEY = "meuMundo_perfil_v1";
 
     function getPerfilFromForm() {
-      return {
-        nomeCompleto: document.getElementById("nomeCompleto").value.trim(),
-        dataNascimento: document.getElementById("dataNascimento").value,
-        telefone: document.getElementById("telefone").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        lattes: document.getElementById("lattes").value.trim(),
-        orcid: document.getElementById("orcid").value.trim(),
-        scholar: document.getElementById("scholar").value.trim(),
-        youtube: document.getElementById("youtube").value.trim(),
-        endereco: document.getElementById("endereco").value.trim(),
-      };
-    }
+  return {
+    nomeCompleto: document.getElementById("nomeCompleto").value.trim(),
+    dataNascimento: document.getElementById("dataNascimento").value,
+    telefone: document.getElementById("telefone").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    lattes: document.getElementById("lattes").value.trim(),
+    orcid: document.getElementById("orcid").value.trim(),
+    scholar: document.getElementById("scholar").value.trim(),
+    youtube: document.getElementById("youtube").value.trim(),
+    instagram: document.getElementById("instagram").value.trim(),
+    siteHub: document.getElementById("siteHub").value.trim(),
+    endereco: document.getElementById("endereco").value.trim(),
+  };
+}
 
-    function fillPerfilForm(data) {
-      if (!data) return;
-      document.getElementById("nomeCompleto").value =
-        data.nomeCompleto || "";
-      document.getElementById("dataNascimento").value =
-        data.dataNascimento || "";
-      document.getElementById("telefone").value = data.telefone || "";
-      document.getElementById("email").value = data.email || "";
-      document.getElementById("lattes").value = data.lattes || "";
-      document.getElementById("orcid").value = data.orcid || "";
-      document.getElementById("scholar").value = data.scholar || "";
-      document.getElementById("youtube").value = data.youtube || "";
-      document.getElementById("endereco").value = data.endereco || "";
-    }
+   function fillPerfilForm(data) {
+  if (!data) return;
+  document.getElementById("nomeCompleto").value = data.nomeCompleto || "";
+  document.getElementById("dataNascimento").value = data.dataNascimento || "";
+  document.getElementById("telefone").value = data.telefone || "";
+  document.getElementById("email").value = data.email || "";
+  document.getElementById("lattes").value = data.lattes || "";
+  document.getElementById("orcid").value = data.orcid || "";
+  document.getElementById("scholar").value = data.scholar || "";
+  document.getElementById("youtube").value = data.youtube || "";
+  document.getElementById("instagram").value = data.instagram || "";
+  document.getElementById("siteHub").value = data.siteHub || "";
+  document.getElementById("endereco").value = data.endereco || "";
+}
+
 
     function setPerfilStatus(msg, cls) {
       const el = document.getElementById("statusPerfil");
