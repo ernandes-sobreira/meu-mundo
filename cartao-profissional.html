@@ -3,190 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <title>Cartão Profissional | Ernandes Sobreira</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
       background: radial-gradient(circle at top, #0f172a, #020617 60%);
-      color: #e5e7eb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:#e5e7eb;
     }
-    .card {
-      width: 100%;
-      max-width: 420px;
-      background: rgba(15, 23, 42, 0.96);
-      border-radius: 20px;
-      padding: 20px 22px;
-      border: 1px solid #1e293b;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.7);
+
+    .card{
+      width:100%;
+      max-width:440px;
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;
+      padding:22px;
+      border:1px solid #1e293b;
+      box-shadow:0 20px 45px rgba(0,0,0,0.7);
+      text-align:center;
     }
-    .title { font-size: 1.3rem; margin: 0; }
-    .subtitle { margin: 2px 0 10px; font-size: 0.9rem; color: #9ca3af; }
-    .tagline { font-size: 0.8rem; color: #9ca3af; margin-bottom: 18px; }
-    .label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #9ca3af;
+
+    .avatar{
+      width:96px;
+      height:96px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid #0ea5e9;
+      box-shadow:0 12px 24px rgba(0,0,0,0.6);
+      margin-bottom:12px;
     }
-    .info-line { font-size: 0.9rem; margin: 4px 0 10px; }
-    a { color: #0ea5e9; text-decoration: none; word-break: break-all; }
-    .qr-box {
-      margin-top: 16px;
-      padding-top: 14px;
-      border-top: 1px dashed #1f2937;
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+
+    h1{
+      margin:4px 0;
+      font-size:1.4rem;
     }
-    .qr-caption {
-      font-size: 0.75rem;
-      color: #9ca3af;
-      max-width: 200px;
+
+    .subtitle{
+      color:#9ca3af;
+      font-size:.9rem;
+      margin-bottom:10px;
     }
-    #qrcode {
-      width: 140px;
-      height: 140px;
-      background: #020617;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px;
+
+    .tagline{
+      color:#9ca3af;
+      font-size:.8rem;
+      line-height:1.4;
+      margin-bottom:18px;
+    }
+
+    .item{
+      margin-bottom:10px;
+      text-align:left;
+    }
+
+    .label{
+      display:block;
+      font-size:.7rem;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      color:#9ca3af;
+      margin-bottom:2px;
+    }
+
+    a{
+      color:#0ea5e9;
+      text-decoration:none;
+      font-size:.88rem;
+      word-break:break-all;
+    }
+
+    .emails a{
+      display:block;
+      margin:2px 0;
+    }
+
+    .phone{
+      font-size:.9rem;
+      color:#e5e7eb;
     }
   </style>
 </head>
+
 <body>
-  <div class="card">
-    <p class="label">Cartão profissional</p>
-    <h1 class="title">Ernandes Sobreira</h1>
-    <p class="subtitle">Biólogo, pesquisador & extensionista</p>
-    <p class="tagline">Pantanal, mudanças climáticas, educação, políticas públicas e transformação de territórios.</p>
 
-    <div class="info-line">
-      <div class="label">Lattes</div>
-      <a href="http://lattes.cnpq.br/7461346615427709" target="_blank">
-        http://lattes.cnpq.br/7461346615427709
-      </a>
-    </div>
+<div class="card">
 
-    <div class="info-line">
-      <div class="label">Google Scholar</div>
-      <a href="https://scholar.google.com.br/citations?user=4vXRVKsAAAAJ&hl=pt-BR" target="_blank">
-        Google Scholar – Ernandes Sobreira
-      </a>
-    </div>
+  <img src="foto-perfil.jpg" alt="Foto Ernandes Sobreira" class="avatar">
 
-    <div class="info-line">
-  <div class="label">ORCID</div>
-  <a href="https://orcid.org/0000-0002-6953-6917" target="_blank">
-    https://orcid.org/0000-0002-6953-6917
-  </a>
-</div>
+  <h1>Ernandes Sobreira</h1>
+  <div class="subtitle">Biólogo, pesquisador & extensionista</div>
 
-<div class="info-line">
-  <div class="label">E-mails</div>
-  <div style="line-height:1.4;">
-    <a href="mailto:ernandes.sobreira@gmail.com">ernandes.sobreira@gmail.com</a><br>
-    <a href="mailto:ernandes.sobreira@unemat.br">ernandes.sobreira@unemat.br</a><br>
+  <div class="tagline">
+    Pantanal, mudanças climáticas, educação, políticas públicas e transformação de territórios.
+  </div>
+
+  <div class="item">
+    <span class="label">Lattes</span>
+    <a href="http://lattes.cnpq.br/7461346615427709" target="_blank">
+      http://lattes.cnpq.br/7461346615427709
+    </a>
+  </div>
+
+  <div class="item">
+    <span class="label">Google Scholar</span>
+    <a href="https://scholar.google.com.br/citations?user=4vXRVKsAAAAJ&hl=pt-BR" target="_blank">
+      Scholar — Ernandes Sobreira
+    </a>
+  </div>
+
+  <div class="item">
+    <span class="label">ORCID</span>
+    <a href="https://orcid.org/0000-0002-6953-6917" target="_blank">
+      https://orcid.org/0000-0002-6953-6917
+    </a>
+  </div>
+
+  <div class="item">
+    <span class="label">Hub da Pós</span>
+    <a href="https://hub-da-pos-pbx2q58.gamma.site/hubdapos" target="_blank">
+      hub-da-pos-pbx2q58.gamma.site/hubdapos
+    </a>
+  </div>
+
+  <div class="item">
+    <span class="label">YouTube</span>
+    <a href="https://www.youtube.com/@ernandessobreira5943" target="_blank">
+      @ernandessobreira5943
+    </a>
+  </div>
+
+  <div class="item">
+    <span class="label">Instagram</span>
+    <a href="https://instagram.com/ernandes_sobreira" target="_blank">
+      @ernandes_sobreira
+    </a>
+  </div>
+
+  <div class="item emails">
+    <span class="label">E-mails</span>
+    <a href="mailto:ernandes.sobreira@gmail.com">ernandes.sobreira@gmail.com</a>
+    <a href="mailto:ernandes.sobreira@unemat.br">ernandes.sobreira@unemat.br</a>
     <a href="mailto:ernandes@unemat.br">ernandes@unemat.br</a>
   </div>
-</div>
 
-
-    <div class="info-line">
-      <div class="label">Hub da Pós</div>
-      <a href="https://hub-da-pos-pbx2q58.gamma.site/hubdapos" target="_blank">
-        hub-da-pos-pbx2q58.gamma.site/hubdapos
-      </a>
-    </div>
-
-    <div class="info-line">
-      <div class="label">YouTube</div>
-      <a href="https://www.youtube.com/@ernandessobreira5943" target="_blank">
-        @ernandessobreira5943
-      </a>
-    </div>
-
-    <div class="info-line">
-      <div class="label">Instagram</div>
-      <a href="https://instagram.com/ernandes_sobreira" target="_blank">
-        @ernandes_sobreira
-      </a>
-    </div>
-
-    <div class="info-line">
-      <div class="label">Telefone</div>
+  <div class="item">
+    <span class="label">Telefone</span>
+    <div class="phone">
       +55 (65) 99932-3724
-    </div>
-
-    <div class="qr-box">
-      <div class="qr-caption">
-        Aponte a câmera para o QR Code para salvar seus contatos profissionais
-        (Lattes, Hub, Scholar, YouTube, Instagram e telefone).
-      </div>
-      <img id="qrcode" style="width:140px;height:140px;border-radius:12px;background:#020617;padding:6px;">
     </div>
   </div>
 
-  <!-- biblioteca para gerar o QR Code -->
-  
-    const qrText = `
-Cartão PROFISSIONAL - Ernandes Sobreira
-
-Lattes: http://lattes.cnpq.br/7461346615427709
-Scholar: https://scholar.google.com.br/citations?user=4vXRVKsAAAAJ&hl=pt-BR
-ORCID: https://orcid.org/0000-0002-6953-6917
-
-Hub da Pós: https://hub-da-pos-pbx2q58.gamma.site/hubdapos
-YouTube: https://www.youtube.com/@ernandessobreira5943
-Instagram: @ernandes_sobreira
-
-Emails:
-ernandes.sobreira@gmail.com
-ernandes.sobreira@unemat.br
-ernandes@unemat.br
-
-Telefone: +55 65 99932-3724
-`;
-
-    new QRCode(document.getElementById("qrcode"), {
-      text: qrText.trim(),
-      width: 120,
-      height: 120
-    });
-  </script>
-  <script>
-  const qrText = `
-Cartão PROFISSIONAL - Ernandes Sobreira
-
-Lattes: http://lattes.cnpq.br/7461346615427709
-Scholar: https://scholar.google.com.br/citations?user=4vXRVKsAAAAJ&hl=pt-BR
-ORCID: https://orcid.org/0000-0002-6953-6917
-Hub: https://hub-da-pos-pbx2q58.gamma.site/hubdapos
-YouTube: https://www.youtube.com/@ernandessobreira5943
-Instagram: @ernandes_sobreira
-
-Emails:
-ernandes.sobreira@gmail.com
-ernandes.sobreira@unemat.br
-ernandes@unemat.br
-
-Telefone: +55 65 99932-3724
-`;
-
-  const qrURL =
-    "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" +
-    encodeURIComponent(qrText.trim());
-
-  document.getElementById("qrcode").src = qrURL;
-</script>
+</div>
 
 </body>
 </html>
