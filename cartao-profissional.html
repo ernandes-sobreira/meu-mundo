@@ -131,13 +131,12 @@
         Aponte a câmera para o QR Code para salvar seus contatos profissionais
         (Lattes, Hub, Scholar, YouTube, Instagram e telefone).
       </div>
-      <div id="qrcode"></div>
+      <img id="qrcode" style="width:140px;height:140px;border-radius:12px;background:#020617;padding:6px;">
     </div>
   </div>
 
   <!-- biblioteca para gerar o QR Code -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <script>
+  
     const qrText = `
 Cartão PROFISSIONAL - Ernandes Sobreira
 
@@ -163,5 +162,31 @@ Telefone: +55 65 99932-3724
       height: 120
     });
   </script>
+  <script>
+  const qrText = `
+Cartão PROFISSIONAL - Ernandes Sobreira
+
+Lattes: http://lattes.cnpq.br/7461346615427709
+Scholar: https://scholar.google.com.br/citations?user=4vXRVKsAAAAJ&hl=pt-BR
+ORCID: https://orcid.org/0000-0002-6953-6917
+Hub: https://hub-da-pos-pbx2q58.gamma.site/hubdapos
+YouTube: https://www.youtube.com/@ernandessobreira5943
+Instagram: @ernandes_sobreira
+
+Emails:
+ernandes.sobreira@gmail.com
+ernandes.sobreira@unemat.br
+ernandes@unemat.br
+
+Telefone: +55 65 99932-3724
+`;
+
+  const qrURL =
+    "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" +
+    encodeURIComponent(qrText.trim());
+
+  document.getElementById("qrcode").src = qrURL;
+</script>
+
 </body>
 </html>
