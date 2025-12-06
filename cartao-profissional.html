@@ -84,6 +84,23 @@
     </div>
 
     <div class="info-line">
+  <div class="label">ORCID</div>
+  <a href="https://orcid.org/0000-0002-6953-6917" target="_blank">
+    https://orcid.org/0000-0002-6953-6917
+  </a>
+</div>
+
+<div class="info-line">
+  <div class="label">E-mails</div>
+  <div style="line-height:1.4;">
+    <a href="mailto:ernandes.sobreira@gmail.com">ernandes.sobreira@gmail.com</a><br>
+    <a href="mailto:ernandes.sobreira@unemat.br">ernandes.sobreira@unemat.br</a><br>
+    <a href="mailto:ernandes@unemat.br">ernandes@unemat.br</a>
+  </div>
+</div>
+
+
+    <div class="info-line">
       <div class="label">Hub da Pós</div>
       <a href="https://hub-da-pos-pbx2q58.gamma.site/hubdapos" target="_blank">
         hub-da-pos-pbx2q58.gamma.site/hubdapos
@@ -123,13 +140,23 @@
   <script>
     const qrText = `
 Cartão PROFISSIONAL - Ernandes Sobreira
+
 Lattes: http://lattes.cnpq.br/7461346615427709
 Scholar: https://scholar.google.com.br/citations?user=4vXRVKsAAAAJ&hl=pt-BR
+ORCID: https://orcid.org/0000-0002-6953-6917
+
 Hub da Pós: https://hub-da-pos-pbx2q58.gamma.site/hubdapos
 YouTube: https://www.youtube.com/@ernandessobreira5943
 Instagram: @ernandes_sobreira
+
+Emails:
+ernandes.sobreira@gmail.com
+ernandes.sobreira@unemat.br
+ernandes@unemat.br
+
 Telefone: +55 65 99932-3724
 `;
+
     new QRCode(document.getElementById("qrcode"), {
       text: qrText.trim(),
       width: 120,
