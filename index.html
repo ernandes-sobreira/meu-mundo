@@ -336,29 +336,43 @@
       text-align: right;
     }
 
-    @media (max-width: 720px) {
-      .shell { border-radius: 0; max-width: 100%; }
-      header { flex-direction: column; align-items: flex-start; }
-      .doc-item { grid-template-columns: minmax(0, 1fr); }
-      .doc-links { justify-content: flex-start; }
+   .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid #0ea5e9;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.6);
     }
+
+    @media (max-width: 720px) {
+      .avatar {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    
   </style>
 </head>
 <body>
   <div class="shell">
     <header>
-      <div class="brand">
-        <div class="logo">MM</div>
-        <div>
-          <h1 class="brand-title">MEU MUNDO</h1>
-          <p class="brand-sub">Eixo das Transformações — vida, ciência e memória</p>
-        </div>
-      </div>
-      <div class="pill">
-        <span class="pill-dot"></span>
-        painel pessoal online
-      </div>
-    </header>
+  <div class="brand">
+    <div class="logo">MM</div>
+    <div>
+      <h1 class="brand-title">MEU MUNDO</h1>
+      <p class="brand-sub">Eixo das Transformações — vida, ciência e memória</p>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div class="pill">
+      <span class="pill-dot"></span>
+      painel pessoal online
+    </div>
+    <img src="foto-perfil.jpg" alt="Foto de perfil" class="avatar">
+  </div>
+</header>
 
     <nav>
       <button class="tab-btn active" data-tab="perfil">👤 Perfil</button>
