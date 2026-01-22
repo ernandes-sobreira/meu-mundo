@@ -5,272 +5,303 @@
   <title>MEU MUNDO | Painel Pessoal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    :root {
-      --bg: #020617;
-      --primary: #0ea5e9;
-      --accent: #22c55e;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
+    :root{
+      /* VIBE 2026: vibrante, colorida, alegre */
+      --bg0:#070A2B;
+      --bg1:#0B1B6B;
+      --card:#0b1228cc;
+      --card2:#0b1228f2;
+
+      --primary:#00D4FF;   /* neon cyan */
+      --accent:#FF3D8D;    /* pink */
+      --lime:#7CFF6B;      /* verde vivo */
+      --sun:#FFD166;       /* amarelo */
+      --violet:#A78BFA;    /* roxo vivo */
+
+      --text:#F6F7FF;
+      --muted:#C7C9D9;
+
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --r:18px;
     }
 
-    * { box-sizing: border-box; }
+    *{ box-sizing:border-box; }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 60%);
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding: 20px 12px;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      padding: 20px 12px;
+
+      /* fundo vibrante */
+      background:
+        radial-gradient(900px 420px at 15% 10%, rgba(255,61,141,.40), transparent 60%),
+        radial-gradient(900px 420px at 85% 18%, rgba(0,212,255,.40), transparent 55%),
+        radial-gradient(800px 520px at 50% 90%, rgba(124,255,107,.22), transparent 60%),
+        linear-gradient(135deg, var(--bg0), var(--bg1));
     }
 
-    .shell {
-      width: 100%;
+    .shell{
+      width:100%;
       max-width: 980px;
-      background: rgba(15,23,42,0.97);
-      border-radius: 18px;
-      border: 1px solid #111827;
-      box-shadow: 0 18px 50px rgba(0,0,0,0.65);
-      overflow: hidden;
+      background: var(--card2);
+      border-radius: var(--r);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position: relative;
     }
 
-    header {
+    header{
       padding: 18px 22px;
-      border-bottom: 1px solid #111827;
-      background: radial-gradient(circle at left, #0ea5e9 0, #020617 60%);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap: 12px;
+
+      background:
+        radial-gradient(900px 240px at 10% 30%, rgba(255,61,141,.45), transparent 55%),
+        radial-gradient(900px 240px at 80% 20%, rgba(0,212,255,.45), transparent 55%),
+        linear-gradient(120deg, rgba(11,18,40,.92), rgba(11,18,40,.65));
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
+    .brand{
+      display:flex;
+      align-items:center;
       gap: 10px;
+      min-width: 240px;
     }
 
-    .logo {
-      width: 40px;
-      height: 40px;
+    .logo{
+      width: 42px;
+      height: 42px;
       border-radius: 14px;
-      background: radial-gradient(circle at 20% 20%, #22c55e, #0ea5e9 70%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #020617;
-      font-weight: 800;
-      box-shadow: 0 10px 25px rgba(14,165,233,0.5);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: #081026;
+      font-weight: 900;
+      letter-spacing:.5px;
+
+      background:
+        radial-gradient(circle at 30% 30%, var(--sun), var(--accent) 45%, var(--primary) 95%);
+      box-shadow: 0 14px 34px rgba(255,61,141,.25), 0 14px 34px rgba(0,212,255,.18);
     }
 
-    .brand-title {
-      margin: 0;
-      font-size: 1.1rem;
+    .brand-title{
+      margin:0;
+      font-size: 1.12rem;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
 
-    .brand-sub {
-      margin: 0;
-      font-size: 0.78rem;
-      color: #e5e7eb;
-      opacity: 0.85;
-    }
-
-    .pill {
-      font-size: 0.75rem;
-      border-radius: 999px;
-      padding: 4px 10px;
-      border: 1px solid rgba(15,23,42,0.9);
-      background: rgba(2,6,23,0.8);
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.4);
-    }
-
-    nav {
-      display: flex;
-      gap: 8px;
-      padding: 10px 16px 0;
-      border-bottom: 1px solid #111827;
-      background: #020617;
-    }
-
-    .tab-btn {
-      border: none;
-      border-radius: 999px;
-      padding: 7px 12px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      background: #020617;
-      color: var(--muted);
-      border: 1px solid #1f2937;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: background 0.12s, color 0.12s, transform 0.08s, box-shadow 0.12s;
-    }
-
-    .tab-btn.active {
-      background: var(--primary);
-      color: #020617;
-      box-shadow: 0 10px 25px rgba(14,165,233,0.4);
-      border-color: transparent;
-    }
-
-    main {
-      padding: 16px 18px 20px;
-    }
-
-    .tab-section {
-      display: block;
-    }
-
-    .tab-section.hidden {
-      display: none;
-    }
-    /* bloco recolhível (começa fechado) */
-.collapsible.hidden { display: none; }
-
-/* animação leve ao abrir (opcional, não pesa) */
-.collapsible {
-  margin-top: 12px;
-}
-
-    .section-title {
-      font-size: 1.15rem;
-      margin: 4px 0 8px;
-    }
-
-    .section-sub {
-      font-size: 0.86rem;
-      color: var(--muted);
-      margin-top: 0;
-      margin-bottom: 14px;
-    }
-
-    .grid-two {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 10px 14px;
-      margin-bottom: 10px;
-    }
-
-    label {
-      font-size: 0.78rem;
-      color: var(--muted);
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="url"],
-    input[type="date"],
-    textarea {
-      width: 100%;
-      padding: 7px 9px;
-      border-radius: 10px;
-      border: 1px solid #111827;
-      background: #020617;
+    .brand-sub{
+      margin:0;
+      font-size: .80rem;
       color: var(--text);
-      font-size: 0.85rem;
-      outline: none;
-      transition: border 0.12s, box-shadow 0.12s, background 0.12s;
+      opacity: .86;
     }
 
-    input:focus,
-    textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 1px rgba(14,165,233,0.6);
-      background: #020617;
+    .right{
+      display:flex;
+      align-items:center;
+      gap: 12px;
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 70px;
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
+    .pill{
+      font-size: .78rem;
+      border-radius: 999px;
+      padding: 6px 12px;
+      color: rgba(255,255,255,.9);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(11,18,40,.55);
+      display:inline-flex;
+      align-items:center;
       gap: 8px;
+      backdrop-filter: blur(6px);
+    }
+
+    .pill-dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--lime);
+      box-shadow: 0 0 0 5px rgba(124,255,107,.18);
+    }
+
+    .avatar{
+      width: 74px;
+      height: 74px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,.18);
+      box-shadow: 0 10px 25px rgba(0,0,0,.45);
+    }
+
+    nav{
+      display:flex;
+      gap: 8px;
+      padding: 10px 16px 12px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(11,18,40,.70);
+      backdrop-filter: blur(8px);
+      flex-wrap: wrap;
+    }
+
+    .tab-btn{
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: .86rem;
+      cursor:pointer;
+      background: rgba(7,10,43,.35);
+      color: rgba(255,255,255,.82);
+      display:inline-flex;
+      align-items:center;
+      gap: 6px;
+      transition: transform .08s, box-shadow .12s, background .12s, border-color .12s;
+    }
+
+    .tab-btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(0,0,0,.30);
+      border-color: rgba(255,255,255,.22);
+    }
+
+    .tab-btn.active{
+      border-color: transparent;
+      color: #081026;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      box-shadow: 0 16px 32px rgba(0,212,255,.18), 0 16px 32px rgba(255,61,141,.18);
+    }
+
+    main{ padding: 16px 18px 20px; }
+
+    .tab-section{ display:block; }
+    .tab-section.hidden{ display:none; }
+
+    .section-title{
+      font-size: 1.15rem;
+      margin: 6px 0 8px;
+    }
+
+    .section-sub{
+      font-size: .88rem;
+      color: rgba(255,255,255,.78);
+      margin: 0 0 14px;
+      line-height: 1.45;
+    }
+
+    .btn-row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 10px;
     }
 
-    .btn {
-      border: none;
+    .btn{
+      border:none;
       border-radius: 999px;
-      padding: 7px 12px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: background 0.12s, transform 0.08s, box-shadow 0.12s, opacity 0.12s;
+      padding: 9px 14px;
+      font-size: .83rem;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      text-decoration:none;
+      transition: transform .08s, box-shadow .12s, filter .12s, opacity .12s;
+      user-select:none;
     }
 
-    .btn-primary {
-      background: var(--primary);
-      color: #020617;
-      box-shadow: 0 10px 25px rgba(14,165,233,0.4);
-    }
-
-    .btn-secondary {
-      background: #020617;
-      border: 1px solid #1f2937;
-      color: var(--muted);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      border: 1px dashed #374151;
-      color: var(--muted);
-    }
-
-    .btn:hover {
+    .btn:hover{
       transform: translateY(-1px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.65);
-      opacity: 0.96;
+      box-shadow: 0 16px 30px rgba(0,0,0,.35);
+      opacity: .98;
     }
 
-    footer {
+    .btn-primary{
+      color:#081026;
+      background: linear-gradient(90deg, var(--primary), var(--sun));
+      box-shadow: 0 16px 32px rgba(0,212,255,.16);
+    }
+
+    .btn-secondary{
+      color: rgba(255,255,255,.90);
+      background: rgba(7,10,43,.35);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    .btn-accent{
+      color:#081026;
+      background: linear-gradient(90deg, var(--accent), var(--violet));
+      box-shadow: 0 16px 32px rgba(255,61,141,.16);
+    }
+
+    .btn-ghost{
+      color: rgba(255,255,255,.85);
+      background: transparent;
+      border: 1px dashed rgba(255,255,255,.28);
+    }
+
+    hr.sep{
+      border:none;
+      border-top: 1px solid var(--line);
+      margin: 18px 0 12px;
+    }
+
+    /* PROEXT recolhível */
+    .collapsible.hidden{ display:none; }
+    .collapsible{
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(900px 240px at 15% 10%, rgba(0,212,255,.14), transparent 55%),
+        radial-gradient(900px 240px at 85% 20%, rgba(255,61,141,.14), transparent 55%),
+        rgba(7,10,43,.35);
+      backdrop-filter: blur(10px);
+    }
+
+    .kv{
+      display:grid;
+      gap: 6px;
+      font-size: .92rem;
+      line-height: 1.55;
+    }
+
+    .kv strong{ color: rgba(255,255,255,.95); }
+    .kv span{ color: rgba(255,255,255,.82); }
+
+    footer{
       padding: 10px 18px 14px;
-      font-size: 0.72rem;
-      color: #6b7280;
-      border-top: 1px solid #111827;
-      text-align: right;
+      font-size: .74rem;
+      color: rgba(255,255,255,.65);
+      border-top: 1px solid var(--line);
+      text-align:right;
+      background: rgba(11,18,40,.55);
     }
 
-    .avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 999px;
-      object-fit: cover;
-      border: 2px solid #0ea5e9;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+    code{
+      background: rgba(255,255,255,.10);
+      padding: 2px 6px;
+      border-radius: 8px;
     }
 
-    @media (max-width: 720px) {
-      .avatar {
-        width: 60px;
-        height: 60px;
-      }
+    @media (max-width: 720px){
+      .avatar{ width: 60px; height: 60px; }
+      header{ padding: 16px 16px; }
+      main{ padding: 14px 14px 18px; }
     }
   </style>
 </head>
+
 <body>
   <div class="shell">
     <header>
@@ -282,12 +313,12 @@
         </div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:12px;">
+      <div class="right">
         <div class="pill">
           <span class="pill-dot"></span>
           painel pessoal online
         </div>
-        <img src="foto-perfil.jpg" alt="Foto de perfil" class="avatar">
+        <img src="foto-perfil.jpg" alt="Foto de perfil" class="avatar" />
       </div>
     </header>
 
@@ -295,185 +326,145 @@
       <button class="tab-btn active" data-tab="perfil">👤 Perfil</button>
       <button class="tab-btn" data-tab="docs">📄 Documentos pessoais</button>
       <button class="tab-btn" data-tab="fotos">🖼️ Fotos para palestras</button>
-      <button class="tab-btn" data-tab="apps">Meus Apps</button>
+      <button class="tab-btn" data-tab="apps">🚀 Meus Apps</button>
     </nav>
 
     <main>
       <!-- PERFIL -->
       <section id="tab-perfil" class="tab-section">
-        <hr style="border:none;border-top:1px solid #111827;margin:18px 0 10px;">
+        <hr class="sep" />
 
         <h2 class="section-title">Cartões de contato</h2>
         <p class="section-sub">
-          Dados básicos e links profissionais. Este perfil fica salvo diretamente no site MEU MUNDO
-          (GitHub Pages). Se quiser atualizar alguma informação, basta editar o arquivo
-          <code>index.html</code> no repositório.
+          Dados básicos e links profissionais. Este perfil fica salvo diretamente no site MEU MUNDO (GitHub Pages).
+          Para atualizar algo, edite o arquivo <code>index.html</code> no repositório.
         </p>
 
         <div class="btn-row">
-          <a class="btn btn-primary" href="cartao-profissional.html" target="_blank">
+          <a class="btn btn-primary" href="cartao-profissional.html" target="_blank" rel="noopener">
             💼 Cartão profissional
           </a>
-          <a class="btn btn-secondary" href="cartao-pessoal.html" target="_blank">
+
+          <a class="btn btn-secondary" href="cartao-pessoal.html" target="_blank" rel="noopener">
             🏡 Cartão pessoal (PIX)
           </a>
-        </div
-          <hr style="border:none;border-top:1px solid #111827;margin:20px 0 12px;">
 
-<h3 class="section-title" style="font-size:1rem;">
-  <hr style="border:none;border-top:1px solid #111827;margin:18px 0 10px;">
+          <!-- “abinha” estilo chip + recolhível -->
+          <button class="btn btn-accent" type="button" aria-expanded="false" onclick="toggleProext(this)">
+            📌 PROEXT-PG · CAPES
+          </button>
+        </div>
 
-<h2 class="section-title" style="font-size:1.05rem; margin-bottom:8px;">
-  📌 Cartões de contato
-</h2>
+        <!-- PROEXT (começa fechado) -->
+        <div id="proext-pg" class="collapsible hidden">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+            <div>
+              <h3 style="margin:0 0 6px;font-size:1rem;">Projeto PROEXT-PG – CAPES</h3>
+              <p class="section-sub" style="margin:0;">
+                Projeto de Ação de Extensão da Pós-Graduação — “Transforma-ações”
+              </p>
+            </div>
 
-<div class="btn-row">
-  <a class="btn btn-primary" href="cartao-profissional.html" target="_blank">💼 Cartão profissional</a>
-  <a class="btn btn-secondary" href="cartao-pessoal.html" target="_blank">🏡 Cartão pessoal (PIX)</a>
+            <div class="btn-row" style="margin:0;">
+              <button class="btn btn-ghost" type="button" onclick="copyProext()">📋 Copiar dados</button>
+              <button class="btn btn-secondary" type="button" onclick="toggleProext(document.getElementById('btn-proext'))" style="display:none;">Fechar</button>
+            </div>
+          </div>
 
-  <!-- BOTÃO PROEXT (igual aos outros, mas abre/fecha) -->
-  <button
-    class="btn btn-secondary"
-    type="button"
-    aria-expanded="false"
-    onclick="toggleProext(this)">
-    📌 PROEXT-PG · CAPES
-  </button>
-</div>
+          <div class="kv" style="margin-top:10px;">
+            <div><strong>Nome:</strong> <span>Ernandes Sobreira Oliveira Júnior</span></div>
+            <div><strong>CPF:</strong> <span>008.380.531-14</span></div>
+            <div style="margin-top:6px;"><strong>Processo:</strong> <span>1148/2024/88881.927459/2023-01</span></div>
+            <div><strong>Programa CAPES:</strong> <span>Projeto de Ação de Extensão da Pós Graduação</span></div>
+            <div style="margin-top:6px;"><strong>Título:</strong> <span>“Transforma-ações: integrando saberes para ações sustentáveis”</span></div>
+            <div style="margin-top:6px;"><strong>Endereço:</strong> <span>Rua dos Yunes, 311, Massa Barro, Cáceres MT, 78217-248</span></div>
+          </div>
+        </div>
+      </section>
 
-<!-- CONTEÚDO DO PROEXT (COMEÇA FECHADO) -->
-<div id="proext-pg" class="collapsible hidden" style="
-  padding: 14px 16px;
-  border-radius: 14px;
-  background: #020617;
-  border: 1px solid #1f2937;
-">
-  <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px;">
-    <div>
-      <h3 style="margin:0 0 6px; font-size:1rem;">Projeto PROEXT-PG – CAPES</h3>
-      <p class="section-sub" style="margin:0;">
-        Projeto de Ação de Extensão da Pós-Graduação (CAPES)
-      </p>
-    </div>
-
-    <button class="btn btn-ghost" type="button" onclick="toggleProext(document.querySelector('button[onclick*=toggleProext]'))">
-      ✖ Fechar
-    </button>
-  </div>
-
-  <div style="margin-top:10px; font-size:.9rem; line-height:1.55;">
-    <div><strong>Nome:</strong> Ernandes Sobreira Oliveira Júnior</div>
-    <div><strong>CPF:</strong> 008.380.531-14</div>
-    <div style="margin-top:8px;"><strong>Processo:</strong> 1148/2024/88881.927459/2023-01</div>
-    <div><strong>Programa CAPES:</strong> Projeto de Ação de Extensão da Pós-Graduação</div>
-    <div style="margin-top:8px;"><strong>Título:</strong> “Transforma-ações: integrando saberes para ações sustentáveis”</div>
-    <div style="margin-top:8px;"><strong>Endereço:</strong> Rua dos Yunes, 311 — Massa Barro, Cáceres-MT, 78217-248</div>
-  </div>
-
-  <div class="btn-row" style="margin-top:12px;">
-    <button class="btn btn-ghost" type="button" onclick="copyProext()">
-      📋 Copiar dados
-    </button>
-  </div>
-</div>
-
-     </section>
-
-      <!-- DOCUMENTOS PESSOAIS -->
+      <!-- DOCUMENTOS -->
       <section id="tab-docs" class="tab-section hidden">
-        <hr style="border:none;border-top:1px solid #111827;margin:18px 0 10px;">
+        <hr class="sep" />
 
         <h2 class="section-title">Documentos pessoais</h2>
         <p class="section-sub">
           Envie aqui seus documentos pessoais importantes (RG, CPF, comprovantes, contratos etc.).
-          Os arquivos vão direto para a pasta
-          <strong>MEU-MUNDO &gt; DOCUMENTOS_PESSOAIS</strong> no seu Google Drive.
+          Os arquivos vão direto para a pasta <strong>MEU-MUNDO &gt; DOCUMENTOS_PESSOAIS</strong> no seu Google Drive.
         </p>
 
         <div class="btn-row">
-          <!-- Botão para ENVIAR documentos (Forms) -->
-          <a
-            class="btn btn-ghost"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfaFuiUbrq-dsOm9DPVzJfmYbLPvW9DOej20JOHzduazeLWEQ/viewform?usp=dialog"
-            target="_blank">
+          <a class="btn btn-ghost"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSfaFuiUbrq-dsOm9DPVzJfmYbLPvW9DOej20JOHzduazeLWEQ/viewform?usp=dialog"
+             target="_blank" rel="noopener">
             📤 Enviar documento para o Google Drive
           </a>
 
-          <!-- Botão para ABRIR a pasta de documentos no Drive -->
-          <a
-            class="btn btn-secondary"
-            href="https://drive.google.com/drive/folders/1K6z0PCpvYiQGHn590dKXb1JVV2QSWdxk4J8PFxhg1sQysQelliVLxnHLV4TImH1qtNCXJCnt?usp=drive_link"
-            target="_blank">
+          <a class="btn btn-secondary"
+             href="https://drive.google.com/drive/folders/1K6z0PCpvYiQGHn590dKXb1JVV2QSWdxk4J8PFxhg1sQysQelliVLxnHLV4TImH1qtNCXJCnt?usp=drive_link"
+             target="_blank" rel="noopener">
             📂 Ver documentos no Google Drive
           </a>
         </div>
       </section>
-<!-- MEUS APPS -->
-<section id="tab-apps" class="tab-section hidden">
-  <hr style="border:none;border-top:1px solid #111827;margin:18px 0 10px;">
 
-  <h2 class="section-title">Meus Apps</h2>
-  <p class="section-sub">
-    Acesse meu hub de aplicações, plataformas e painéis em um só lugar.
-  </p>
-
-  <div class="btn-row">
-    <a
-      class="btn btn-primary"
-      href="https://ernandes-sobreira.github.io/meu-hub/"
-      target="_blank"
-      rel="noopener">
-      🚀 Abrir Meu Hub de Apps
-    </a>
-  </div>
-</section>
-
-      <!-- FOTOS PARA PALESTRAS -->
+      <!-- FOTOS -->
       <section id="tab-fotos" class="tab-section hidden">
-        <hr style="border:none;border-top:1px solid #111827;margin:18px 0 10px;">
+        <hr class="sep" />
 
         <h2 class="section-title">Fotos para palestras</h2>
         <p class="section-sub">
-          Aqui você guarda fotos selecionadas para usar em palestras, eventos, slides e materiais
-          de divulgação. As imagens são enviadas para a pasta
-          <strong>MEU-MUNDO &gt; FOTOS_PALESTRAS</strong> no seu Google Drive.
+          Aqui você guarda fotos selecionadas para usar em palestras, eventos, slides e materiais de divulgação.
+          As imagens são enviadas para a pasta <strong>MEU-MUNDO &gt; FOTOS_PALESTRAS</strong> no seu Google Drive.
         </p>
 
         <div class="btn-row">
-          <!-- Botão para ENVIAR fotos (Forms) -->
-          <a
-            class="btn btn-ghost"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeDkazjXPA8n6H0mNA9ViobxmpD7twXTyzi_MEp9L7nH9mqrg/viewform?usp=publish-editor"
-            target="_blank">
+          <a class="btn btn-ghost"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSeDkazjXPA8n6H0mNA9ViobxmpD7twXTyzi_MEp9L7nH9mqrg/viewform?usp=publish-editor"
+             target="_blank" rel="noopener">
             📸 Enviar fotos para o Google Drive
           </a>
 
-          <!-- Botão para ABRIR a pasta das fotos no Drive -->
-          <a
-            class="btn btn-secondary"
-            href="https://drive.google.com/drive/folders/1n9DTKL6J-T17eHdcqfxycnweubSTa9fa?usp=drive_link"
-            target="_blank">
+          <a class="btn btn-secondary"
+             href="https://drive.google.com/drive/folders/1n9DTKL6J-T17eHdcqfxycnweubSTa9fa?usp=drive_link"
+             target="_blank" rel="noopener">
             📂 Ver fotos no Google Drive
+          </a>
+        </div>
+      </section>
+
+      <!-- APPS -->
+      <section id="tab-apps" class="tab-section hidden">
+        <hr class="sep" />
+
+        <h2 class="section-title">Meus Apps</h2>
+        <p class="section-sub">
+          Seu hub de aplicações, plataformas e painéis em um só lugar.
+        </p>
+
+        <div class="btn-row">
+          <a class="btn btn-primary"
+             href="https://ernandes-sobreira.github.io/meu-hub/"
+             target="_blank" rel="noopener">
+            🚀 Abrir Meu Hub de Apps
           </a>
         </div>
       </section>
     </main>
 
     <footer>
-      Este painel não guarda senhas. Documentos reais permanecem no seu Google Drive
-      (e, se quiser, também no OneDrive).
+      Este painel não guarda senhas. Documentos reais permanecem no seu Google Drive (e, se quiser, também no OneDrive).
     </footer>
   </div>
 
   <script>
-    // ------------ TABS -----------
+    // ---------- TABS ----------
     const tabButtons = document.querySelectorAll(".tab-btn");
     const sections = {
-  perfil: document.getElementById("tab-perfil"),
-  docs: document.getElementById("tab-docs"),
-  fotos: document.getElementById("tab-fotos"),
-  apps: document.getElementById("tab-apps")
-};
+      perfil: document.getElementById("tab-perfil"),
+      docs:   document.getElementById("tab-docs"),
+      fotos:  document.getElementById("tab-fotos"),
+      apps:   document.getElementById("tab-apps")
+    };
 
     tabButtons.forEach(btn => {
       btn.addEventListener("click", () => {
@@ -483,14 +474,47 @@
         btn.classList.add("active");
 
         Object.values(sections).forEach(sec => sec.classList.add("hidden"));
-        sections[tab].classList.remove("hidden");
+        if (sections[tab]) sections[tab].classList.remove("hidden");
       });
     });
 
-    // deixa apenas a aba de perfil visível ao carregar
+    // ---------- PROEXT toggle ----------
+    function toggleProext(btn){
+      const box = document.getElementById("proext-pg");
+      const isHidden = box.classList.contains("hidden");
+
+      if(isHidden){
+        box.classList.remove("hidden");
+        btn.setAttribute("aria-expanded","true");
+        btn.innerHTML = "📌 PROEXT-PG · CAPES (aberto)";
+      }else{
+        box.classList.add("hidden");
+        btn.setAttribute("aria-expanded","false");
+        btn.innerHTML = "📌 PROEXT-PG · CAPES";
+      }
+    }
+
+    function copyProext(){
+      const txt =
+`Nome: Ernandes Sobreira Oliveira Júnior
+CPF: 008.380.531-14
+Processo: 1148/2024/88881.927459/2023-01
+Programa CAPES: Projeto de Ação de Extensão da Pós Graduação
+Título: “Transforma-ações: integrando saberes para ações sustentáveis”
+Endereço: Rua dos Yunes, 311, Massa Barro, Cáceres MT, 78217-248`;
+
+      navigator.clipboard.writeText(txt).then(()=>{
+        alert("Dados do PROEXT-PG copiados ✅");
+      }).catch(()=>{
+        alert("Não consegui copiar automaticamente. Copie manualmente.");
+      });
+    }
+
+    // estado inicial
     sections.perfil.classList.remove("hidden");
     sections.docs.classList.add("hidden");
     sections.fotos.classList.add("hidden");
+    sections.apps.classList.add("hidden");
   </script>
 </body>
 </html>
