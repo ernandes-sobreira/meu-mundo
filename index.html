@@ -141,6 +141,13 @@
     .tab-section.hidden {
       display: none;
     }
+    /* bloco recolhível (começa fechado) */
+.collapsible.hidden { display: none; }
+
+/* animação leve ao abrir (opcional, não pesa) */
+.collapsible {
+  margin-top: 12px;
+}
 
     .section-title {
       font-size: 1.15rem;
@@ -314,47 +321,63 @@
           <hr style="border:none;border-top:1px solid #111827;margin:20px 0 12px;">
 
 <h3 class="section-title" style="font-size:1rem;">
-  📌 Projetos vinculados
-</h3>
+  <hr style="border:none;border-top:1px solid #111827;margin:18px 0 10px;">
+
+<h2 class="section-title" style="font-size:1.05rem; margin-bottom:8px;">
+  📌 Cartões de contato
+</h2>
 
 <div class="btn-row">
+  <a class="btn btn-primary" href="cartao-profissional.html" target="_blank">💼 Cartão profissional</a>
+  <a class="btn btn-secondary" href="cartao-pessoal.html" target="_blank">🏡 Cartão pessoal (PIX)</a>
+
+  <!-- BOTÃO PROEXT (igual aos outros, mas abre/fecha) -->
   <button
     class="btn btn-secondary"
-    onclick="document.getElementById('proext-pg').classList.toggle('hidden')">
-    PROEXT-PG · CAPES
+    type="button"
+    aria-expanded="false"
+    onclick="toggleProext(this)">
+    📌 PROEXT-PG · CAPES
   </button>
 </div>
 
-<!-- PROEXT-PG -->
-<div id="proext-pg" class="hidden" style="
-  margin-top:14px;
-  padding:14px 16px;
-  border-radius:14px;
-  background:#020617;
-  border:1px solid #1f2937;
+<!-- CONTEÚDO DO PROEXT (COMEÇA FECHADO) -->
+<div id="proext-pg" class="collapsible hidden" style="
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #020617;
+  border: 1px solid #1f2937;
 ">
+  <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px;">
+    <div>
+      <h3 style="margin:0 0 6px; font-size:1rem;">Projeto PROEXT-PG – CAPES</h3>
+      <p class="section-sub" style="margin:0;">
+        Projeto de Ação de Extensão da Pós-Graduação (CAPES)
+      </p>
+    </div>
 
-  <h4 style="margin:0 0 8px;font-size:.95rem;">
-    Projeto PROEXT-PG – CAPES
-  </h4>
+    <button class="btn btn-ghost" type="button" onclick="toggleProext(document.querySelector('button[onclick*=toggleProext]'))">
+      ✖ Fechar
+    </button>
+  </div>
 
-  <p style="font-size:.85rem;line-height:1.45;color:#e5e7eb;">
-    <strong>Nome:</strong> Ernandes Sobreira Oliveira Júnior<br>
-    <strong>CPF:</strong> 008.380.531-14<br><br>
+  <div style="margin-top:10px; font-size:.9rem; line-height:1.55;">
+    <div><strong>Nome:</strong> Ernandes Sobreira Oliveira Júnior</div>
+    <div><strong>CPF:</strong> 008.380.531-14</div>
+    <div style="margin-top:8px;"><strong>Processo:</strong> 1148/2024/88881.927459/2023-01</div>
+    <div><strong>Programa CAPES:</strong> Projeto de Ação de Extensão da Pós-Graduação</div>
+    <div style="margin-top:8px;"><strong>Título:</strong> “Transforma-ações: integrando saberes para ações sustentáveis”</div>
+    <div style="margin-top:8px;"><strong>Endereço:</strong> Rua dos Yunes, 311 — Massa Barro, Cáceres-MT, 78217-248</div>
+  </div>
 
-    <strong>Processo:</strong> 1148/2024/88881.927459/2023-01<br>
-    <strong>Programa CAPES:</strong> Projeto de Ação de Extensão da Pós-Graduação<br><br>
-
-    <strong>Título:</strong><br>
-    “Transforma-ações: integrando saberes para ações sustentáveis”<br><br>
-
-    <strong>Endereço:</strong><br>
-    Rua dos Yunes, 311 – Massa Barro<br>
-    Cáceres-MT – CEP 78217-248
-  </p>
-
+  <div class="btn-row" style="margin-top:12px;">
+    <button class="btn btn-ghost" type="button" onclick="copyProext()">
+      📋 Copiar dados
+    </button>
+  </div>
 </div>
-      </section>
+
+     </section>
 
       <!-- DOCUMENTOS PESSOAIS -->
       <section id="tab-docs" class="tab-section hidden">
