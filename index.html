@@ -6,23 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root{
-      /* VIBE 2026: vibrante, colorida, alegre */
-      --bg0:#070A2B;
-      --bg1:#0B1B6B;
-      --card:#0b1228cc;
-      --card2:#0b1228f2;
+      /* 🔥 2026 VIBE: alegre, vibrante, com laranja/vermelho/azul */
+      --bgA:#0B1026;     /* azul escuro, mas vivo */
+      --bgB:#061A3A;     /* azul petróleo */
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(10,16,38,.72);
 
-      --primary:#00D4FF;   /* neon cyan */
-      --accent:#FF3D8D;    /* pink */
-      --lime:#7CFF6B;      /* verde vivo */
-      --sun:#FFD166;       /* amarelo */
-      --violet:#A78BFA;    /* roxo vivo */
+      --text:#FFFFFF;
+      --muted: rgba(255,255,255,.78);
+      --line: rgba(255,255,255,.16);
 
-      --text:#F6F7FF;
-      --muted:#C7C9D9;
+      --blue:#2D7CFF;
+      --cyan:#00D7FF;
+      --green:#3CFF88;
+      --yellow:#FFD84D;
+      --orange:#FF8A00;
+      --red:#FF2E63;
+      --violet:#9B5CFF;
 
-      --line: rgba(255,255,255,.12);
-      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --shadow: 0 24px 80px rgba(0,0,0,.45);
       --r:18px;
     }
 
@@ -34,27 +36,29 @@
       display:flex;
       justify-content:center;
       align-items:flex-start;
-      padding: 20px 12px;
+      padding:20px 12px;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
 
-      /* fundo vibrante */
+      /* Fundo alegre: blobs coloridos + gradiente */
       background:
-        radial-gradient(900px 420px at 15% 10%, rgba(255,61,141,.40), transparent 60%),
-        radial-gradient(900px 420px at 85% 18%, rgba(0,212,255,.40), transparent 55%),
-        radial-gradient(800px 520px at 50% 90%, rgba(124,255,107,.22), transparent 60%),
-        linear-gradient(135deg, var(--bg0), var(--bg1));
+        radial-gradient(900px 520px at 8% 12%, rgba(255,138,0,.40), transparent 60%),
+        radial-gradient(820px 480px at 88% 16%, rgba(45,124,255,.40), transparent 60%),
+        radial-gradient(900px 520px at 50% 92%, rgba(255,46,99,.30), transparent 60%),
+        radial-gradient(900px 520px at 50% 40%, rgba(60,255,136,.16), transparent 70%),
+        linear-gradient(135deg, var(--bgA), var(--bgB));
     }
 
     .shell{
       width:100%;
       max-width: 980px;
-      background: var(--card2);
+      background: rgba(10,16,38,.70);
       border-radius: var(--r);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
       overflow:hidden;
-      position: relative;
+      backdrop-filter: blur(10px);
+      position:relative;
     }
 
     header{
@@ -63,18 +67,18 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 12px;
+      gap:12px;
 
       background:
-        radial-gradient(900px 240px at 10% 30%, rgba(255,61,141,.45), transparent 55%),
-        radial-gradient(900px 240px at 80% 20%, rgba(0,212,255,.45), transparent 55%),
-        linear-gradient(120deg, rgba(11,18,40,.92), rgba(11,18,40,.65));
+        radial-gradient(1000px 260px at 12% 30%, rgba(255,138,0,.35), transparent 62%),
+        radial-gradient(1000px 260px at 78% 25%, rgba(45,124,255,.35), transparent 62%),
+        linear-gradient(120deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap: 10px;
+      gap:10px;
       min-width: 240px;
     }
 
@@ -85,13 +89,11 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      color: #081026;
+      color: #09102A;
       font-weight: 900;
       letter-spacing:.5px;
-
-      background:
-        radial-gradient(circle at 30% 30%, var(--sun), var(--accent) 45%, var(--primary) 95%);
-      box-shadow: 0 14px 34px rgba(255,61,141,.25), 0 14px 34px rgba(0,212,255,.18);
+      background: linear-gradient(135deg, var(--orange), var(--red), var(--blue));
+      box-shadow: 0 16px 35px rgba(255,138,0,.18), 0 16px 35px rgba(45,124,255,.18);
     }
 
     .brand-title{
@@ -104,35 +106,33 @@
     .brand-sub{
       margin:0;
       font-size: .80rem;
-      color: var(--text);
-      opacity: .86;
+      color: var(--muted);
     }
 
     .right{
       display:flex;
       align-items:center;
-      gap: 12px;
+      gap:12px;
     }
 
     .pill{
-      font-size: .78rem;
-      border-radius: 999px;
+      font-size:.78rem;
+      border-radius:999px;
       padding: 6px 12px;
-      color: rgba(255,255,255,.9);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(11,18,40,.55);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.90);
       display:inline-flex;
       align-items:center;
-      gap: 8px;
-      backdrop-filter: blur(6px);
+      gap:8px;
     }
 
     .pill-dot{
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: var(--lime);
-      box-shadow: 0 0 0 5px rgba(124,255,107,.18);
+      background: var(--green);
+      box-shadow: 0 0 0 5px rgba(60,255,136,.18);
     }
 
     .avatar{
@@ -140,8 +140,8 @@
       height: 74px;
       border-radius: 999px;
       object-fit: cover;
-      border: 2px solid rgba(255,255,255,.18);
-      box-shadow: 0 10px 25px rgba(0,0,0,.45);
+      border: 2px solid rgba(255,255,255,.20);
+      box-shadow: 0 10px 25px rgba(0,0,0,.35);
     }
 
     nav{
@@ -149,36 +149,37 @@
       gap: 8px;
       padding: 10px 16px 12px;
       border-bottom: 1px solid var(--line);
-      background: rgba(11,18,40,.70);
-      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,.04);
       flex-wrap: wrap;
+      backdrop-filter: blur(10px);
     }
 
     .tab-btn{
-      border: 1px solid rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.16);
       border-radius: 999px;
       padding: 8px 12px;
       font-size: .86rem;
       cursor:pointer;
-      background: rgba(7,10,43,.35);
-      color: rgba(255,255,255,.82);
+      background: rgba(10,16,38,.38);
+      color: rgba(255,255,255,.86);
       display:inline-flex;
       align-items:center;
-      gap: 6px;
-      transition: transform .08s, box-shadow .12s, background .12s, border-color .12s;
+      gap:6px;
+      transition: transform .08s, box-shadow .12s, background .12s, border-color .12s, filter .12s;
     }
 
     .tab-btn:hover{
       transform: translateY(-1px);
-      box-shadow: 0 14px 26px rgba(0,0,0,.30);
-      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 14px 26px rgba(0,0,0,.25);
+      border-color: rgba(255,255,255,.26);
+      filter: brightness(1.08);
     }
 
     .tab-btn.active{
       border-color: transparent;
-      color: #081026;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      box-shadow: 0 16px 32px rgba(0,212,255,.18), 0 16px 32px rgba(255,61,141,.18);
+      color: #09102A;
+      background: linear-gradient(90deg, var(--cyan), var(--orange), var(--red));
+      box-shadow: 0 16px 34px rgba(255,138,0,.14), 0 16px 34px rgba(0,215,255,.12);
     }
 
     main{ padding: 16px 18px 20px; }
@@ -186,16 +187,22 @@
     .tab-section{ display:block; }
     .tab-section.hidden{ display:none; }
 
+    hr.sep{
+      border:none;
+      border-top: 1px solid var(--line);
+      margin: 18px 0 12px;
+    }
+
     .section-title{
       font-size: 1.15rem;
       margin: 6px 0 8px;
     }
 
     .section-sub{
-      font-size: .88rem;
-      color: rgba(255,255,255,.78);
+      font-size: .90rem;
+      color: var(--muted);
       margin: 0 0 14px;
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
     .btn-row{
@@ -217,56 +224,61 @@
       text-decoration:none;
       transition: transform .08s, box-shadow .12s, filter .12s, opacity .12s;
       user-select:none;
+      white-space: nowrap;
     }
 
     .btn:hover{
       transform: translateY(-1px);
-      box-shadow: 0 16px 30px rgba(0,0,0,.35);
+      box-shadow: 0 16px 30px rgba(0,0,0,.30);
+      filter: brightness(1.05);
       opacity: .98;
     }
 
     .btn-primary{
-      color:#081026;
-      background: linear-gradient(90deg, var(--primary), var(--sun));
-      box-shadow: 0 16px 32px rgba(0,212,255,.16);
+      color:#09102A;
+      background: linear-gradient(90deg, var(--cyan), var(--yellow));
+    }
+
+    .btn-pro{
+      color:#09102A;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+    }
+
+    .btn-pix{
+      color:#09102A;
+      background: linear-gradient(90deg, var(--orange), var(--red));
     }
 
     .btn-secondary{
-      color: rgba(255,255,255,.90);
-      background: rgba(7,10,43,.35);
-      border: 1px solid rgba(255,255,255,.14);
-    }
-
-    .btn-accent{
-      color:#081026;
-      background: linear-gradient(90deg, var(--accent), var(--violet));
-      box-shadow: 0 16px 32px rgba(255,61,141,.16);
+      color: rgba(255,255,255,.92);
+      background: rgba(10,16,38,.35);
+      border: 1px solid rgba(255,255,255,.16);
     }
 
     .btn-ghost{
-      color: rgba(255,255,255,.85);
+      color: rgba(255,255,255,.88);
       background: transparent;
       border: 1px dashed rgba(255,255,255,.28);
     }
 
-    hr.sep{
-      border:none;
-      border-top: 1px solid var(--line);
-      margin: 18px 0 12px;
-    }
-
-    /* PROEXT recolhível */
-    .collapsible.hidden{ display:none; }
-    .collapsible{
+    .card{
       margin-top: 12px;
       padding: 14px 16px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.16);
       background:
-        radial-gradient(900px 240px at 15% 10%, rgba(0,212,255,.14), transparent 55%),
-        radial-gradient(900px 240px at 85% 20%, rgba(255,61,141,.14), transparent 55%),
-        rgba(7,10,43,.35);
+        radial-gradient(900px 260px at 15% 10%, rgba(255,138,0,.16), transparent 60%),
+        radial-gradient(900px 260px at 85% 30%, rgba(45,124,255,.16), transparent 60%),
+        rgba(10,16,38,.35);
       backdrop-filter: blur(10px);
+    }
+
+    .card-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .kv{
@@ -274,24 +286,37 @@
       gap: 6px;
       font-size: .92rem;
       line-height: 1.55;
+      margin-top: 10px;
     }
 
     .kv strong{ color: rgba(255,255,255,.95); }
-    .kv span{ color: rgba(255,255,255,.82); }
+    .kv span{ color: rgba(255,255,255,.86); }
 
-    footer{
-      padding: 10px 18px 14px;
-      font-size: .74rem;
-      color: rgba(255,255,255,.65);
-      border-top: 1px solid var(--line);
-      text-align:right;
-      background: rgba(11,18,40,.55);
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: .78rem;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.90);
     }
 
     code{
       background: rgba(255,255,255,.10);
       padding: 2px 6px;
       border-radius: 8px;
+    }
+
+    footer{
+      padding: 10px 18px 14px;
+      font-size: .74rem;
+      color: rgba(255,255,255,.68);
+      border-top: 1px solid var(--line);
+      text-align:right;
+      background: rgba(255,255,255,.04);
     }
 
     @media (max-width: 720px){
@@ -314,10 +339,7 @@
       </div>
 
       <div class="right">
-        <div class="pill">
-          <span class="pill-dot"></span>
-          painel pessoal online
-        </div>
+        <div class="pill"><span class="pill-dot"></span> painel pessoal online</div>
         <img src="foto-perfil.jpg" alt="Foto de perfil" class="avatar" />
       </div>
     </header>
@@ -336,48 +358,58 @@
 
         <h2 class="section-title">Cartões de contato</h2>
         <p class="section-sub">
-          Dados básicos e links profissionais. Este perfil fica salvo diretamente no site MEU MUNDO (GitHub Pages).
-          Para atualizar algo, edite o arquivo <code>index.html</code> no repositório.
+          Aqui você tem links rápidos e também botões para <strong>copiar e colar</strong> seus dados.
+          Para atualizar, edite os textos no objeto <code>DATA</code> dentro do arquivo <code>index.html</code>.
         </p>
 
         <div class="btn-row">
-          <a class="btn btn-primary" href="cartao-profissional.html" target="_blank" rel="noopener">
-            💼 Cartão profissional
+          <!-- Profissional: link + copiar -->
+          <a class="btn btn-pro" href="cartao-profissional.html" target="_blank" rel="noopener">
+            💼 Abrir cartão profissional
           </a>
+          <button class="btn btn-secondary" type="button" onclick="copyText(DATA.cartaoProfissional, 'Cartão profissional copiado ✅')">
+            📋 Copiar profissional
+          </button>
 
-          <a class="btn btn-secondary" href="cartao-pessoal.html" target="_blank" rel="noopener">
-            🏡 Cartão pessoal (PIX)
+          <!-- Pessoal PIX: link + copiar -->
+          <a class="btn btn-pix" href="cartao-pessoal.html" target="_blank" rel="noopener">
+            🏡 Abrir cartão pessoal (PIX)
           </a>
+          <button class="btn btn-secondary" type="button" onclick="copyText(DATA.cartaoPessoalPix, 'Cartão pessoal/PIX copiado ✅')">
+            📋 Copiar PIX
+          </button>
 
-          <!-- “abinha” estilo chip + recolhível -->
-          <button class="btn btn-accent" type="button" aria-expanded="false" onclick="toggleProext(this)">
+          <!-- PROEXT: chip recolhível -->
+          <button class="btn btn-primary" id="btn-proext" type="button" aria-expanded="false" onclick="toggleProext(this)">
             📌 PROEXT-PG · CAPES
           </button>
         </div>
 
-        <!-- PROEXT (começa fechado) -->
-        <div id="proext-pg" class="collapsible hidden">
-          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <!-- PROEXT (recolhível) -->
+        <div id="proext-box" class="card" style="display:none;">
+          <div class="card-head">
             <div>
-              <h3 style="margin:0 0 6px;font-size:1rem;">Projeto PROEXT-PG – CAPES</h3>
-              <p class="section-sub" style="margin:0;">
+              <div class="badge">📌 PROEXT-PG</div>
+              <h3 style="margin:8px 0 0;font-size:1rem;">Projeto PROEXT-PG – CAPES</h3>
+              <p class="section-sub" style="margin:6px 0 0;">
                 Projeto de Ação de Extensão da Pós-Graduação — “Transforma-ações”
               </p>
             </div>
 
             <div class="btn-row" style="margin:0;">
-              <button class="btn btn-ghost" type="button" onclick="copyProext()">📋 Copiar dados</button>
-              <button class="btn btn-secondary" type="button" onclick="toggleProext(document.getElementById('btn-proext'))" style="display:none;">Fechar</button>
+              <button class="btn btn-ghost" type="button" onclick="copyText(DATA.proext, 'Dados do PROEXT-PG copiados ✅')">
+                📋 Copiar dados
+              </button>
             </div>
           </div>
 
-          <div class="kv" style="margin-top:10px;">
-            <div><strong>Nome:</strong> <span>Ernandes Sobreira Oliveira Júnior</span></div>
-            <div><strong>CPF:</strong> <span>008.380.531-14</span></div>
-            <div style="margin-top:6px;"><strong>Processo:</strong> <span>1148/2024/88881.927459/2023-01</span></div>
-            <div><strong>Programa CAPES:</strong> <span>Projeto de Ação de Extensão da Pós Graduação</span></div>
-            <div style="margin-top:6px;"><strong>Título:</strong> <span>“Transforma-ações: integrando saberes para ações sustentáveis”</span></div>
-            <div style="margin-top:6px;"><strong>Endereço:</strong> <span>Rua dos Yunes, 311, Massa Barro, Cáceres MT, 78217-248</span></div>
+          <div class="kv">
+            <div><strong>Nome:</strong> <span id="proext-nome"></span></div>
+            <div><strong>CPF:</strong> <span id="proext-cpf"></span></div>
+            <div style="margin-top:6px;"><strong>Processo:</strong> <span id="proext-processo"></span></div>
+            <div><strong>Programa CAPES:</strong> <span id="proext-programa"></span></div>
+            <div style="margin-top:6px;"><strong>Título:</strong> <span id="proext-titulo"></span></div>
+            <div style="margin-top:6px;"><strong>Endereço:</strong> <span id="proext-endereco"></span></div>
           </div>
         </div>
       </section>
@@ -385,24 +417,23 @@
       <!-- DOCUMENTOS -->
       <section id="tab-docs" class="tab-section hidden">
         <hr class="sep" />
-
         <h2 class="section-title">Documentos pessoais</h2>
         <p class="section-sub">
-          Envie aqui seus documentos pessoais importantes (RG, CPF, comprovantes, contratos etc.).
+          Envie aqui seus documentos pessoais (RG, CPF, comprovantes, contratos etc.).
           Os arquivos vão direto para a pasta <strong>MEU-MUNDO &gt; DOCUMENTOS_PESSOAIS</strong> no seu Google Drive.
         </p>
 
         <div class="btn-row">
-          <a class="btn btn-ghost"
+          <a class="btn btn-primary"
              href="https://docs.google.com/forms/d/e/1FAIpQLSfaFuiUbrq-dsOm9DPVzJfmYbLPvW9DOej20JOHzduazeLWEQ/viewform?usp=dialog"
              target="_blank" rel="noopener">
-            📤 Enviar documento para o Google Drive
+            📤 Enviar documento
           </a>
 
           <a class="btn btn-secondary"
              href="https://drive.google.com/drive/folders/1K6z0PCpvYiQGHn590dKXb1JVV2QSWdxk4J8PFxhg1sQysQelliVLxnHLV4TImH1qtNCXJCnt?usp=drive_link"
              target="_blank" rel="noopener">
-            📂 Ver documentos no Google Drive
+            📂 Ver pasta no Drive
           </a>
         </div>
       </section>
@@ -410,24 +441,23 @@
       <!-- FOTOS -->
       <section id="tab-fotos" class="tab-section hidden">
         <hr class="sep" />
-
         <h2 class="section-title">Fotos para palestras</h2>
         <p class="section-sub">
-          Aqui você guarda fotos selecionadas para usar em palestras, eventos, slides e materiais de divulgação.
-          As imagens são enviadas para a pasta <strong>MEU-MUNDO &gt; FOTOS_PALESTRAS</strong> no seu Google Drive.
+          Envie e organize fotos para palestras, eventos e slides. As imagens vão para
+          <strong>MEU-MUNDO &gt; FOTOS_PALESTRAS</strong> no seu Google Drive.
         </p>
 
         <div class="btn-row">
-          <a class="btn btn-ghost"
+          <a class="btn btn-primary"
              href="https://docs.google.com/forms/d/e/1FAIpQLSeDkazjXPA8n6H0mNA9ViobxmpD7twXTyzi_MEp9L7nH9mqrg/viewform?usp=publish-editor"
              target="_blank" rel="noopener">
-            📸 Enviar fotos para o Google Drive
+            📸 Enviar fotos
           </a>
 
           <a class="btn btn-secondary"
              href="https://drive.google.com/drive/folders/1n9DTKL6J-T17eHdcqfxycnweubSTa9fa?usp=drive_link"
              target="_blank" rel="noopener">
-            📂 Ver fotos no Google Drive
+            📂 Ver pasta no Drive
           </a>
         </div>
       </section>
@@ -435,11 +465,8 @@
       <!-- APPS -->
       <section id="tab-apps" class="tab-section hidden">
         <hr class="sep" />
-
         <h2 class="section-title">Meus Apps</h2>
-        <p class="section-sub">
-          Seu hub de aplicações, plataformas e painéis em um só lugar.
-        </p>
+        <p class="section-sub">Seu hub de aplicações, plataformas e painéis em um só lugar.</p>
 
         <div class="btn-row">
           <a class="btn btn-primary"
@@ -457,7 +484,45 @@
   </div>
 
   <script>
-    // ---------- TABS ----------
+    // =========================
+    // 1) EDITE AQUI (COPIAR/COLAR)
+    // =========================
+    const DATA = {
+      // Texto que você quer copiar do “cartão profissional”
+      cartaoProfissional:
+`CARTÃO PROFISSIONAL — Ernandes Sobreira Oliveira Júnior
+(cole aqui o texto que você quiser copiar rapidamente)
+Link: https://ernandes-sobreira.github.io/meu-mundo/cartao-profissional.html`,
+
+      // Texto que você quer copiar do “cartão pessoal/PIX”
+      cartaoPessoalPix:
+`CARTÃO PESSOAL / PIX — Ernandes Sobreira Oliveira Júnior
+(cole aqui o texto do seu PIX / dados pessoais)
+Link: https://ernandes-sobreira.github.io/meu-mundo/cartao-pessoal.html`,
+
+      // PROEXT (copiar)
+      proext:
+`Nome: Ernandes Sobreira Oliveira Júnior
+CPF: 008.380.531-14
+Processo: 1148/2024/88881.927459/2023-01
+Programa CAPES: Projeto de Ação de Extensão da Pós Graduação
+Título: “Transforma-ações: integrando saberes para ações sustentáveis”
+Endereço: Rua dos Yunes, 311, Massa Barro, Cáceres MT, 78217-248`,
+
+      // PROEXT (exibir)
+      proextFields: {
+        nome: "Ernandes Sobreira Oliveira Júnior",
+        cpf: "008.380.531-14",
+        processo: "1148/2024/88881.927459/2023-01",
+        programa: "Projeto de Ação de Extensão da Pós Graduação",
+        titulo: "“Transforma-ações: integrando saberes para ações sustentáveis”",
+        endereco: "Rua dos Yunes, 311, Massa Barro, Cáceres MT, 78217-248"
+      }
+    };
+
+    // =========================
+    // 2) TABS PRINCIPAIS
+    // =========================
     const tabButtons = document.querySelectorAll(".tab-btn");
     const sections = {
       perfil: document.getElementById("tab-perfil"),
@@ -478,43 +543,50 @@
       });
     });
 
-    // ---------- PROEXT toggle ----------
-    function toggleProext(btn){
-      const box = document.getElementById("proext-pg");
-      const isHidden = box.classList.contains("hidden");
-
-      if(isHidden){
-        box.classList.remove("hidden");
-        btn.setAttribute("aria-expanded","true");
-        btn.innerHTML = "📌 PROEXT-PG · CAPES (aberto)";
-      }else{
-        box.classList.add("hidden");
-        btn.setAttribute("aria-expanded","false");
-        btn.innerHTML = "📌 PROEXT-PG · CAPES";
-      }
-    }
-
-    function copyProext(){
-      const txt =
-`Nome: Ernandes Sobreira Oliveira Júnior
-CPF: 008.380.531-14
-Processo: 1148/2024/88881.927459/2023-01
-Programa CAPES: Projeto de Ação de Extensão da Pós Graduação
-Título: “Transforma-ações: integrando saberes para ações sustentáveis”
-Endereço: Rua dos Yunes, 311, Massa Barro, Cáceres MT, 78217-248`;
-
-      navigator.clipboard.writeText(txt).then(()=>{
-        alert("Dados do PROEXT-PG copiados ✅");
-      }).catch(()=>{
-        alert("Não consegui copiar automaticamente. Copie manualmente.");
-      });
-    }
-
     // estado inicial
     sections.perfil.classList.remove("hidden");
     sections.docs.classList.add("hidden");
     sections.fotos.classList.add("hidden");
     sections.apps.classList.add("hidden");
+
+    // =========================
+    // 3) PROEXT RECOLHÍVEL
+    // =========================
+    const proextBox = document.getElementById("proext-box");
+    function fillProext(){
+      const f = DATA.proextFields;
+      document.getElementById("proext-nome").textContent = f.nome;
+      document.getElementById("proext-cpf").textContent = f.cpf;
+      document.getElementById("proext-processo").textContent = f.processo;
+      document.getElementById("proext-programa").textContent = f.programa;
+      document.getElementById("proext-titulo").textContent = f.titulo;
+      document.getElementById("proext-endereco").textContent = f.endereco;
+    }
+    fillProext();
+
+    function toggleProext(btn){
+      const open = proextBox.style.display !== "none";
+      if(open){
+        proextBox.style.display = "none";
+        btn.setAttribute("aria-expanded","false");
+        btn.textContent = "📌 PROEXT-PG · CAPES";
+      }else{
+        proextBox.style.display = "block";
+        btn.setAttribute("aria-expanded","true");
+        btn.textContent = "📌 PROEXT-PG · CAPES (aberto)";
+      }
+    }
+
+    // =========================
+    // 4) COPIAR TEXTO (GERAL)
+    // =========================
+    function copyText(text, msg){
+      navigator.clipboard.writeText(text).then(()=>{
+        alert(msg || "Copiado ✅");
+      }).catch(()=>{
+        alert("Não consegui copiar automaticamente. Copie manualmente.");
+      });
+    }
   </script>
 </body>
 </html>
