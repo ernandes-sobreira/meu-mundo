@@ -91,13 +91,48 @@
     @media(max-width:580px){.wrap{width:calc(100% - 2.2rem)}.mast .wrap{gap:.65rem;padding-block:.65rem}nav{gap:1rem}.signature small{display:none}.hero{grid-template-columns:1fr;padding-top:2rem;gap:1.5rem}.hero figure{margin-right:.45rem}.photo-frame{aspect-ratio:1.46}.photo-frame img{object-position:50% 46%}figcaption{margin-top:.8rem}.kicker{margin-bottom:.75rem}.topic-grid,footer .wrap{grid-template-columns:1fr}.topic-grid{gap:0}.bio-box{padding:1rem 1.1rem}.tools button{padding:.48rem .65rem}footer .wrap{gap:1.5rem}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
     @media print{@page{size:A4;margin:18mm}body{font:10.8pt/1.45 Arial,sans-serif;color:#111}.wrap{width:100%}.mast,.skip,.actions,.tools,.endtools,.status,.hero figcaption,.description,.bio-box h3,.event a{display:none!important}.hero{display:grid;grid-template-columns:1fr 3cm;gap:1cm;padding:0 0 .5cm}.hero .lead{margin:.3cm 0;font-size:11pt}.hero h1{font-size:32pt}.hero .kicker{font-size:8pt}.photo-frame{box-shadow:none;aspect-ratio:.8}.bio-band,.trajectory,footer{background:white}.split,.topics,footer{display:block;padding:.4cm 0}.bio-box{border:none;padding:0}.bio-box p{font:11pt/1.45 Arial,sans-serif}.bio-box+.bio-box{margin:0}#cerimonial{display:none!important}#programacao[hidden]{display:block!important}h2,footer h2{font-size:17pt;margin-bottom:.2cm}.topic-grid{gap:0 .65cm;margin:0}.topic{padding:.18cm 0}.topic h3,.event h3{font-size:12pt}.topic p,.event p{margin:.08cm 0;font-size:10pt}.timeline{margin:0 0 .25cm}.timeline li{padding:.08cm 0;grid-template-columns:3cm 1fr}.timeline strong{font-size:10pt}footer .wrap{display:block}.resources{margin-top:.15cm}.small-head{display:none}.event,.topic{break-inside:avoid}a{color:#123869}}
+    .hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,4.5vw,4rem)}
+    .hero h1{font-size:clamp(3.25rem,5.45vw,4.9rem)}
+    .photo-cover{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:1fr 1fr;gap:.45rem;aspect-ratio:1.18;min-width:0}
+    .photo-cover a{display:block;min-height:0;overflow:hidden;background:#e0e9e8}
+    .photo-cover a:first-child{grid-row:1 / 3}
+    .photo-cover img,.gallery-image{width:100%;height:100%;display:block;object-fit:cover;object-position:var(--focus,center)}
+    .photo-cover a:focus-visible{outline-offset:0}
+    .gallery{padding:clamp(2rem,4.5vw,3.5rem) 0;background:#f4f7f5;border-top:1px solid #dbe4dd}
+    .gallery-header{display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}
+    .gallery h2{font-size:clamp(2.15rem,3.8vw,3.35rem);max-width:none}
+    .gallery-note{margin:.4rem 0 0;color:var(--muted)}
+    .filters{display:flex;flex-wrap:wrap;gap:.38rem}
+    .filters button{border:1px solid #b9c9ce;border-radius:1.4rem;background:white;color:var(--ink);font-weight:650;font-size:.91rem;padding:.45rem .85rem;min-height:42px}
+    .filters button[aria-pressed=true]{color:white;background:var(--blue);border-color:var(--blue)}
+    .photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.45rem 1.05rem}
+    .gallery-item{min-width:0}
+    .gallery-item .view-photo{display:block;overflow:hidden;border-radius:3px;aspect-ratio:1.53;background:#dae4dc}
+    .gallery-item figcaption{font:500 1.15rem/1.3 var(--serif);letter-spacing:-.02em;margin:.5rem 0 0;color:var(--ink)}
+    .view-photo:hover img{filter:brightness(1.045)}
+    .gallery-more{display:block;margin:1.45rem auto 0}
+    .viewer{border:0;border-radius:10px;background:white;color:var(--ink);width:min(60rem,calc(100% - 2rem));max-width:none;max-height:94vh;max-height:94dvh;padding:.7rem;box-shadow:0 20px 90px #10222d40}
+    .viewer::backdrop{background:rgba(12,27,34,.82)}
+    .viewer-head,.viewer-actions{display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+    .viewer-head{margin-bottom:.6rem;padding-left:.5rem}
+    .viewer-head strong{font:500 1.3rem/1.25 var(--serif)}
+    .viewer .full-photo{width:100%;height:min(63vh,43rem);height:min(63dvh,43rem);object-fit:contain;display:block;background:#f0f3f2}
+    .viewer-actions{margin-top:.6rem;flex-wrap:wrap}
+    .pager{display:flex;align-items:center;gap:.5rem}
+    .position{color:var(--muted);font-size:.88rem;white-space:nowrap}
+    body:has(.viewer[open]){overflow:hidden}
+    .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+    @media(max-width:770px){.hero{grid-template-columns:1fr 1fr;gap:1.5rem}.photo-cover{aspect-ratio:.83}.photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-header{align-items:start}}
+    @media(max-width:580px){.hero{grid-template-columns:1fr}.photo-cover{aspect-ratio:1.34}.gallery{padding:1.8rem 0}.photo-grid{gap:1rem .6rem}.gallery-item .view-photo{aspect-ratio:1.1}.gallery-item figcaption{font-size:1.02rem}.filters button{font-size:.84rem;padding:.38rem .62rem}.mast nav{gap:.8rem}.viewer{width:calc(100% - .75rem);padding:.45rem}.viewer-head strong{font-size:1.08rem}.viewer-actions .btn{font-size:.85rem;padding:.5rem .65rem}.pager{gap:.35rem}.viewer .full-photo{height:57vh;height:57dvh}}
+    @media(max-width:365px){.mast nav{gap:.62rem}.viewer-actions{justify-content:center}.filters{gap:.25rem}}
+    @media print{.gallery,.viewer,.photo-cover a:not(:first-child){display:none!important}.hero .photo-cover{display:block;aspect-ratio:auto}.photo-cover a:first-child{height:3.3cm}.hero{grid-template-columns:1fr 3cm}}
   </style>
 </head>
 <body>
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
   <header class="mast"><div class="wrap">
     <a class="signature" href="#conteudo"><span class="monogram" aria-hidden="true">es</span><span class="brand">Meu Mundo</span><small>Palestras</small></a>
-    <nav aria-label="Navegação principal"><a href="#minicurriculo">Minicurrículo</a><a href="#temas">Temas</a><a href="#contato">Contato</a></nav>
+    <nav aria-label="Navegação principal"><a href="#minicurriculo">Minicurrículo</a><a href="#galeria">Galeria</a><a href="#temas">Temas</a><a href="#contato">Contato</a></nav>
   </div></header>
   <main id="conteudo">
     <section class="hero wrap" aria-labelledby="nome">
@@ -105,10 +140,73 @@
         <p class="kicker">UNEMAT · Cáceres, Mato Grosso</p>
         <h1 id="nome"><span>Ernandes Sobreira</span> <span class="family">Oliveira Junior</span></h1>
         <p class="lead">Sou biólogo e professor da Universidade do Estado de Mato Grosso. No Pantanal, estudo como as cheias e as secas mudam as trocas de carbono entre a água e a atmosfera. Também investigo o ar que respiramos na época das queimadas.</p>
-        <div class="actions"><a class="btn primary" href="#minicurriculo">Usar minicurrículo</a><a class="btn" id="foto-download" href="../foto-perfil.jpg" download="Ernandes-Sobreira-foto.jpg">Baixar foto</a></div>
+        <div class="actions"><a class="btn primary" href="#minicurriculo">Usar minicurrículo</a><a class="btn" id="foto-download" href="../foto-perfil.jpg" download="Ernandes-Sobreira-foto.jpg">Baixar retrato</a><a href="#galeria">Ver galeria</a></div>
       </div>
-      <figure><div class="photo-frame"><img id="retrato" src="../foto-perfil.jpg" width="825" height="1468" alt="Ernandes Sobreira fala ao microfone diante de um mural colorido."></div><figcaption>Foto para divulgação de palestras e conferências.</figcaption></figure>
+<div class="photo-cover" aria-label="Palestra e pesquisa em campo"><a data-cover="palestra" href="#foto-palestra" aria-label="Ampliar foto — Ao microfone"><img class="gallery-image" src="fotos/mini/palestra.jpg" width="393" height="700" alt="Ernandes fala ao microfone diante de um mural azul." style="--focus:50% 43%" decoding="async"></a>
+        <a data-cover="equipe-em-campo" href="#foto-equipe-em-campo" aria-label="Ampliar foto — A câmara vai para a água"><img class="gallery-image" src="fotos/mini/equipe-em-campo.jpg" width="650" height="488" alt="Duas pessoas conduzem a câmara e a mangueira em uma área alagada." style="--focus:52% 62%" decoding="async"></a>
+        <a data-cover="camara-na-margem" href="#foto-camara-na-margem" aria-label="Ampliar foto — Com a câmara à margem da água"><img class="gallery-image" src="fotos/mini/camara-na-margem.jpg" width="650" height="488" alt="Pesquisador segura a câmara flutuante junto à água, com gado ao fundo." style="--focus:36% 44%" decoding="async"></a></div>
     </section>
+    <section class="gallery" id="galeria" aria-labelledby="gallery-title"><div class="wrap">
+      <div class="gallery-header"><div><h2 id="gallery-title">Galeria de fotos</h2><p class="gallery-note">Da palestra ao campo. Abra uma foto para ampliar ou baixar.</p></div>
+        <div class="filters" role="group" aria-label="Filtrar fotos" hidden><button type="button" data-group="Todas" aria-pressed="true">Todas</button><button type="button" data-group="Retratos" aria-pressed="false">Retratos</button><button type="button" data-group="Trabalho de campo" aria-pressed="false">Trabalho de campo</button><button type="button" data-group="Paisagens" aria-pressed="false">Paisagens</button></div>
+      </div>
+      <div class="photo-grid" id="photo-grid">
+        <figure class="gallery-item" id="foto-palestra" data-group="Retratos">
+          <a class="view-photo" href="../foto-perfil.jpg" download="Ernandes-Sobreira-palestra.jpg" aria-label="Ampliar foto — Ao microfone"><img class="gallery-image" src="fotos/mini/palestra.jpg" width="393" height="700" alt="Ernandes fala ao microfone diante de um mural azul." style="--focus:50% 43%" loading="lazy" decoding="async"></a>
+          <figcaption>Ao microfone</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-camara-na-margem" data-group="Retratos">
+          <a class="view-photo" href="fotos/camara-na-margem.jpg" download="Ernandes-Sobreira-camara-na-margem.jpg" aria-label="Ampliar foto — Com a câmara à margem da água"><img class="gallery-image" src="fotos/mini/camara-na-margem.jpg" width="650" height="488" alt="Pesquisador segura a câmara flutuante junto à água, com gado ao fundo." style="--focus:36% 44%" loading="lazy" decoding="async"></a>
+          <figcaption>Com a câmara à margem da água</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-equipe-em-campo" data-group="Trabalho de campo">
+          <a class="view-photo" href="fotos/equipe-em-campo.jpg" download="Ernandes-Sobreira-equipe-em-campo.jpg" aria-label="Ampliar foto — A câmara vai para a água"><img class="gallery-image" src="fotos/mini/equipe-em-campo.jpg" width="650" height="488" alt="Duas pessoas conduzem a câmara e a mangueira em uma área alagada." style="--focus:52% 62%" loading="lazy" decoding="async"></a>
+          <figcaption>A câmara vai para a água</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-retrato-em-campo" data-group="Retratos">
+          <a class="view-photo" href="fotos/retrato-em-campo.jpg" download="Ernandes-Sobreira-retrato-em-campo.jpg" aria-label="Ampliar foto — Retrato no campo alagado"><img class="gallery-image" src="fotos/mini/retrato-em-campo.jpg" width="525" height="700" alt="Pesquisador ergue a câmara acima da vegetação em uma área alagada." style="--focus:50% 83%" loading="lazy" decoding="async"></a>
+          <figcaption>Retrato no campo alagado</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-camara-flutuante" data-group="Trabalho de campo">
+          <a class="view-photo" href="fotos/camara-flutuante.jpg" download="Ernandes-Sobreira-camara-flutuante.jpg" aria-label="Ampliar foto — Câmara entre plantas flutuantes"><img class="gallery-image" src="fotos/mini/camara-flutuante.jpg" width="525" height="700" alt="Câmara transparente com flutuador azul e mangueiras entre as plantas aquáticas." style="--focus:52% 77%" loading="lazy" decoding="async"></a>
+          <figcaption>Câmara entre plantas flutuantes</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-vegetacao-aquatica" data-group="Paisagens">
+          <a class="view-photo" href="fotos/vegetacao-aquatica.jpg" download="Ernandes-Sobreira-vegetacao-aquatica.jpg" aria-label="Ampliar foto — Água entre as macrófitas"><img class="gallery-image" src="fotos/mini/vegetacao-aquatica.jpg" width="525" height="700" alt="Faixa de água cercada por plantas aquáticas, com árvores ao fundo." style="--focus:51% 59%" loading="lazy" decoding="async"></a>
+          <figcaption>Água entre as macrófitas</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-camara-sobre-solo" data-group="Trabalho de campo">
+          <a class="view-photo" href="fotos/camara-sobre-solo.jpg" download="Ernandes-Sobreira-camara-sobre-solo.jpg" aria-label="Ampliar foto — Câmara sobre o solo exposto"><img class="gallery-image" src="fotos/mini/camara-sobre-solo.jpg" width="650" height="488" alt="Câmara com mangueiras sobre o solo arenoso, junto à vegetação e à cerca." style="--focus:52% 66%" loading="lazy" decoding="async"></a>
+          <figcaption>Câmara sobre o solo exposto</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-manuseio-em-campo" data-group="Retratos">
+          <a class="view-photo" href="fotos/manuseio-em-campo.jpg" download="Ernandes-Sobreira-manuseio-em-campo.jpg" aria-label="Ampliar foto — Manuseio do equipamento"><img class="gallery-image" src="fotos/mini/manuseio-em-campo.jpg" width="525" height="700" alt="Pesquisador segura a mangueira e a câmara em um trecho de campo úmido." style="--focus:52% 80%" loading="lazy" decoding="async"></a>
+          <figcaption>Manuseio do equipamento</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-ponto-de-coleta" data-group="Trabalho de campo">
+          <a class="view-photo" href="fotos/ponto-de-coleta.jpg" download="Ernandes-Sobreira-ponto-de-coleta.jpg" aria-label="Ampliar foto — O posto de medição"><img class="gallery-image" src="fotos/mini/ponto-de-coleta.jpg" width="650" height="571" alt="Equipamento abrigado sob um guarda-chuva na margem e câmara flutuante na água." style="--focus:56% 61%" loading="lazy" decoding="async"></a>
+          <figcaption>O posto de medição</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-superficie-da-baia" data-group="Paisagens">
+          <a class="view-photo" href="fotos/superficie-da-baia.jpg" download="Ernandes-Sobreira-superficie-da-baia.jpg" aria-label="Ampliar foto — A superfície da baía"><img class="gallery-image" src="fotos/mini/superficie-da-baia.jpg" width="525" height="700" alt="Vegetação flutuante recobre parte da lâmina de água sob céu nublado." style="--focus:50% 47%" loading="lazy" decoding="async"></a>
+          <figcaption>A superfície da baía</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-amostra-de-solo" data-group="Trabalho de campo">
+          <a class="view-photo" href="fotos/amostra-de-solo.jpg" download="Ernandes-Sobreira-amostra-de-solo.jpg" aria-label="Ampliar foto — Uma amostra de solo"><img class="gallery-image" src="fotos/mini/amostra-de-solo.jpg" width="394" height="700" alt="Amostrador metálico aberto com solo em seu interior, diante da vegetação." style="--focus:50% 53%" loading="lazy" decoding="async"></a>
+          <figcaption>Uma amostra de solo</figcaption>
+        </figure>
+      </div>
+      <button class="btn gallery-more" id="gallery-more" type="button" aria-controls="photo-grid" aria-expanded="false" hidden>Ver as 11 fotos</button>
+      <p class="vh" role="status" id="gallery-status"></p>
+    </div></section>
+    <dialog class="viewer" id="photo-viewer" aria-labelledby="view-title">
+      <div class="viewer-head"><strong id="view-title">Foto</strong><button class="btn" id="close-viewer" type="button">Fechar</button></div>
+      <img class="full-photo" id="full-photo" alt="">
+      <div class="viewer-actions">
+        <div class="pager"><button class="btn" id="prev-photo" type="button">Anterior</button><span class="position" id="view-position" aria-live="polite"></span><button class="btn" id="next-photo" type="button">Próxima</button></div>
+        <a class="btn primary" id="view-download" download>Baixar foto</a>
+      </div>
+    </dialog>
     <section class="bio-band" id="minicurriculo" aria-labelledby="bio-title"><div class="split wrap">
       <div><h2 id="bio-title">Minicurrículo para eventos</h2><p class="description">Escolha o texto para a abertura da palestra ou para a programação do evento.</p></div>
       <div>
@@ -208,22 +306,116 @@
       if (!response.ok) throw new Error('arquivo');
       return asDataURL(await response.blob());
     }
-    const portrait = select('retrato');
-    if (portrait.src.startsWith('data:')) select('foto-download').href = portrait.src;
+    const cards = Array.from(document.querySelectorAll('.gallery-item'));
+    const dialog = select('photo-viewer');
+    const filters = Array.from(document.querySelectorAll('.filters button'));
+    const more = select('gallery-more');
+    const previewLimit = 6;
+    let group = 'Todas';
+    let expanded = false;
+    let selectedCard = null;
+    let opener = null;
+    const matchingCards = () => cards.filter(card => group === 'Todas' || card.dataset.group === group);
+    function drawGallery() {
+      const groupCards = matchingCards();
+      const visible = expanded ? groupCards : groupCards.slice(0,previewLimit);
+      cards.forEach(card => card.hidden = !visible.includes(card));
+      filters.forEach(button => button.setAttribute('aria-pressed',String(button.dataset.group === group)));
+      more.hidden = groupCards.length <= previewLimit;
+      more.textContent = expanded ? 'Mostrar menos fotos' : 'Ver as ' + groupCards.length + ' fotos';
+      more.setAttribute('aria-expanded',String(expanded));
+      select('gallery-status').textContent = visible.length + ' de ' + groupCards.length + ' fotos visíveis.';
+    }
+    filters.forEach(button => button.onclick = () => {
+      group = button.dataset.group;
+      expanded = false;
+      drawGallery();
+    });
+    more.onclick = () => { expanded = !expanded; drawGallery(); };
+    document.querySelector('.filters').hidden = false;
+    drawGallery();
+    function displayPhoto(card) {
+      selectedCard = card;
+      const link = card.querySelector('.view-photo');
+      const large = select('full-photo');
+      large.alt = card.querySelector('img').alt;
+      large.src = link.href;
+      select('view-title').textContent = card.querySelector('figcaption').textContent;
+      const pool = matchingCards();
+      select('view-position').textContent = (pool.indexOf(card) + 1) + ' de ' + pool.length;
+      const download = select('view-download');
+      download.href = link.href;
+      download.download = link.download;
+    }
+    function openPhoto(event,card) {
+      if (event.ctrlKey || event.altKey || event.shiftKey || event.metaKey || typeof dialog.showModal !== 'function') return;
+      event.preventDefault();
+      opener = event.currentTarget;
+      displayPhoto(card);
+      dialog.showModal();
+      select('close-viewer').focus();
+    }
+    for (const card of cards) card.querySelector('.view-photo').addEventListener('click',event => openPhoto(event,card));
+    for (const cover of document.querySelectorAll('[data-cover]')) cover.addEventListener('click',event => {
+      group = 'Todas';
+      drawGallery();
+      openPhoto(event,select('foto-'+cover.dataset.cover));
+    });
+    function turnPhoto(step) {
+      const pool = matchingCards();
+      const next = (pool.indexOf(selectedCard) + step + pool.length) % pool.length;
+      displayPhoto(pool[next]);
+    }
+    select('prev-photo').onclick = () => turnPhoto(-1);
+    select('next-photo').onclick = () => turnPhoto(1);
+    select('close-viewer').onclick = () => dialog.close();
+    dialog.addEventListener('close',() => {
+      select('full-photo').removeAttribute('src');
+      opener?.focus({preventScroll:true});
+    });
+    dialog.addEventListener('click',event => {
+      if (event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+    });
+    dialog.addEventListener('keydown',event => {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        event.preventDefault();
+        turnPhoto(event.key === 'ArrowRight' ? 1 : -1);
+      }
+    });
+
+    function syncPortraitDownload() {
+      select('foto-download').href = select('foto-palestra').querySelector('.view-photo').href;
+    }
+    syncPortraitDownload();
     select('save-html').onclick = async () => {
       const button = select('save-html');
       const status = select('file-status');
       button.disabled = true;
+      status.textContent = 'Preparando o perfil com as fotos…';
       try {
-        const [photo,pdf] = await Promise.all([embed(portrait.src),embed(select('pdf-download').href)]);
         const page = document.documentElement.cloneNode(true);
-        page.querySelector('#retrato').src = photo;
-        page.querySelector('#foto-download').setAttribute('href',new URL('../foto-perfil.jpg',canonical).href);
-        page.querySelector('#pdf-download').href = pdf;
+        // Cada foto ampliada fica no link da miniatura e também funciona como download offline.
+        const cache = new Map();
+        function embedded(url) {
+          if (!cache.has(url)) cache.set(url,embed(url));
+          return cache.get(url);
+        }
+        const assets = Array.from(page.querySelectorAll('.gallery-image,.view-photo,#pdf-download'));
+        await Promise.all(assets.map(async node => {
+          const attr = node.tagName === 'IMG' ? 'src' : 'href';
+          const original = new URL(node.getAttribute(attr),document.baseURI).href;
+          node.setAttribute(attr,await embedded(original));
+        }));
+        page.querySelector('#foto-download').href = new URL('../foto-perfil.jpg',canonical).href;
+        page.querySelector('#photo-viewer').removeAttribute('open');
+        page.querySelector('#full-photo').removeAttribute('src');
+        page.querySelector('#view-download').removeAttribute('href');
         page.querySelector('#save-html').disabled = false;
-        page.querySelectorAll('.bio-box').forEach(node => node.hidden = false);
-        page.querySelectorAll('.tools,#copy-bio,#copy-link,#save-html').forEach(node => node.hidden = true);
-        page.querySelectorAll('.status').forEach(node => node.textContent = '');
+        page.querySelectorAll('.bio-box,.gallery-item').forEach(node => node.hidden = false);
+        page.querySelectorAll('.tools,.filters,#gallery-more,#copy-bio,#copy-link,#save-html').forEach(node => node.hidden = true);
+        page.querySelectorAll('[role=status]').forEach(node => node.textContent = '');
         const url = URL.createObjectURL(new Blob(['<!doctype html>\n',page.outerHTML],{type:'text/html;charset=utf-8'}));
         const link = document.createElement('a');
         link.href = url;
@@ -232,7 +424,7 @@
         link.click();
         link.remove();
         setTimeout(() => URL.revokeObjectURL(url),60000);
-        status.textContent = 'HTML com foto pronto para salvar.';
+        status.textContent = 'HTML com a galeria pronto para salvar.';
       } catch {
         status.textContent = 'Não foi possível baixar o perfil. Verifique a conexão e tente novamente.';
       } finally { button.disabled = false; }
