@@ -126,6 +126,7 @@
     @media(max-width:580px){.hero{grid-template-columns:1fr}.photo-cover{aspect-ratio:1.34}.gallery{padding:1.8rem 0}.photo-grid{gap:1rem .6rem}.gallery-item .view-photo{aspect-ratio:1.1}.gallery-item figcaption{font-size:1.02rem}.filters button{font-size:.84rem;padding:.38rem .62rem}.mast nav{gap:.8rem}.viewer{width:calc(100% - .75rem);padding:.45rem}.viewer-head strong{font-size:1.08rem}.viewer-actions .btn{font-size:.85rem;padding:.5rem .65rem}.pager{gap:.35rem}.viewer .full-photo{height:57vh;height:57dvh}}
     @media(max-width:365px){.mast nav{gap:.62rem}.viewer-actions{justify-content:center}.filters{gap:.25rem}}
     @media print{.gallery,.viewer,.photo-cover a:not(:first-child){display:none!important}.hero .photo-cover{display:block;aspect-ratio:auto}.photo-cover a:first-child{height:3.3cm}.hero{grid-template-columns:1fr 3cm}}
+    .foto-detalhe{display:block;margin-top:.16rem;font:normal .8rem/1.4 var(--sans,Arial,sans-serif);letter-spacing:0;color:var(--muted)}
   </style>
 </head>
 <body>
@@ -142,22 +143,54 @@
         <p class="lead">Sou biólogo e professor da Universidade do Estado de Mato Grosso. No Pantanal, estudo como as cheias e as secas mudam as trocas de carbono entre a água e a atmosfera. Também investigo o ar que respiramos na época das queimadas.</p>
         <div class="actions"><a class="btn primary" href="#minicurriculo">Usar minicurrículo</a><a class="btn" id="foto-download" href="fotos/retrato-na-mata.jpg" download="Ernandes-Sobreira-foto.jpg">Baixar retrato</a><a href="#galeria">Ver galeria</a></div>
       </div>
-<div class="photo-cover" aria-label="Palestra e pesquisa em campo"><a data-cover="retrato-na-mata" href="#foto-retrato-na-mata" aria-label="Ampliar foto — Retrato na mata"><img class="gallery-image" src="fotos/mini/retrato-na-mata.jpg" width="526" height="700" alt="Retrato de Ernandes de óculos e camiseta verde, com a mata ao fundo." style="--focus:50% 59%" decoding="async"></a>
-        <a data-cover="equipe-em-campo" href="#foto-equipe-em-campo" aria-label="Ampliar foto — A câmara vai para a água"><img class="gallery-image" src="fotos/mini/equipe-em-campo.jpg" width="650" height="488" alt="Duas pessoas conduzem a câmara e a mangueira em uma área alagada." style="--focus:52% 62%" decoding="async"></a>
-        <a data-cover="palestra" href="#foto-palestra" aria-label="Ampliar foto — Ao microfone"><img class="gallery-image" src="fotos/mini/palestra.jpg" width="393" height="700" alt="Ernandes fala ao microfone diante de um mural azul." style="--focus:50% 43%" decoding="async"></a></div>
+<div class="photo-cover" aria-label="Retrato, palestra e comunidade"><a data-cover="retrato-na-mata" href="#foto-retrato-na-mata" aria-label="Ampliar foto — Retrato na mata"><img class="gallery-image" src="fotos/mini/retrato-na-mata.jpg" width="526" height="700" alt="Retrato de Ernandes de óculos e camiseta verde, com a mata ao fundo." style="--focus:50% 59%" decoding="async"></a>
+        <a data-cover="palestra" href="#foto-palestra" aria-label="Ampliar foto — Ao microfone"><img class="gallery-image" src="fotos/mini/palestra.jpg" width="393" height="700" alt="Ernandes fala ao microfone diante de um mural azul." style="--focus:50% 43%" decoding="async"></a>
+        <a data-cover="equipe-cop" href="#foto-equipe-cop" aria-label="Ampliar foto — Com participantes da COP Pantanal"><img class="gallery-image" src="fotos/mini/equipe-cop.jpg" width="360" height="800" alt="Ernandes posa ao ar livre com três participantes e o mascote da COP Pantanal, em Cáceres." style="--focus:50% 23%" decoding="async"></a></div>
     </section>
     <section class="gallery" id="galeria" aria-labelledby="gallery-title"><div class="wrap">
-      <div class="gallery-header"><div><h2 id="gallery-title">Galeria de fotos</h2><p class="gallery-note">Da palestra ao campo. Abra uma foto para ampliar ou baixar.</p></div>
-        <div class="filters" role="group" aria-label="Filtrar fotos" hidden><button type="button" data-group="Todas" aria-pressed="true">Todas</button><button type="button" data-group="Retratos" aria-pressed="false">Retratos</button><button type="button" data-group="Eventos" aria-pressed="false">Eventos</button><button type="button" data-group="Trabalho de campo" aria-pressed="false">Trabalho de campo</button><button type="button" data-group="Paisagens" aria-pressed="false">Paisagens</button></div>
+      <div class="gallery-header"><div><h2 id="gallery-title">Galeria de fotos</h2><p class="gallery-note">Abra uma foto para ampliar ou baixar.</p></div>
+        <div class="filters" role="group" aria-label="Filtrar fotos" hidden><button type="button" data-group="Todas" aria-pressed="true">Todas</button><button type="button" data-group="Palestras" aria-pressed="false">Palestras</button><button type="button" data-group="Comunidade" aria-pressed="false">Comunidade</button><button type="button" data-group="Selfies" aria-pressed="false">Selfies</button><button type="button" data-group="Retratos" aria-pressed="false">Retratos</button><button type="button" data-group="Eventos" aria-pressed="false">Eventos</button><button type="button" data-group="Trabalho de campo" aria-pressed="false">Trabalho de campo</button><button type="button" data-group="Paisagens" aria-pressed="false">Paisagens</button></div>
       </div>
       <div class="photo-grid" id="photo-grid">
+        <figure class="gallery-item" id="foto-palco-cuiaba" data-group="Palestras|Eventos">
+          <a class="view-photo" href="fotos/palco-cuiaba.jpg" download="Ernandes-Sobreira-palco-cuiaba.jpg" aria-label="Ampliar foto — No palco em Cuiabá"><img class="gallery-image" src="fotos/mini/palco-cuiaba.jpg" width="450" height="800" alt="Ernandes fala ao microfone diante de uma projeção na Semana Nacional de Ciência e Tecnologia, em outubro de 2025." style="--focus:50% 42%" loading="lazy" decoding="async"></a>
+          <figcaption>No palco em Cuiabá<small class="foto-detalhe"> Out. 2025 · Quadro de vídeo</small></figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-selfie-trilha" data-group="Selfies|Retratos">
+          <a class="view-photo" href="fotos/selfie-trilha.jpg" download="Ernandes-Sobreira-selfie-trilha.jpg" aria-label="Ampliar foto — Selfie na trilha"><img class="gallery-image" src="fotos/mini/selfie-trilha.jpg" width="601" height="800" alt="Ernandes segura a câmera à altura do rosto em uma trilha cercada de árvores." style="--focus:50% 43%" loading="lazy" decoding="async"></a>
+          <figcaption>Selfie na trilha</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-encontro-cop" data-group="Comunidade|Eventos">
+          <a class="view-photo" href="fotos/encontro-cop.jpg" download="Ernandes-Sobreira-encontro-cop.jpg" aria-label="Ampliar foto — Encontro na COP Pantanal"><img class="gallery-image" src="fotos/mini/encontro-cop.jpg" width="360" height="800" alt="Ernandes e um participante seguram juntos um exemplar impresso durante a COP Pantanal, em Cáceres." style="--focus:50% 24%" loading="lazy" decoding="async"></a>
+          <figcaption>Encontro na COP Pantanal</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-conversa-poster" data-group="Comunidade|Eventos">
+          <a class="view-photo" href="fotos/conversa-poster.jpg" download="Ernandes-Sobreira-conversa-poster.jpg" aria-label="Ampliar foto — Conversa na sessão de pôsteres"><img class="gallery-image" src="fotos/mini/conversa-poster.jpg" width="600" height="800" alt="Ernandes e outras pessoas acompanham uma apresentação diante de um pôster na Semana Brasileira de Física Ambiental." style="--focus:51% 38%" loading="lazy" decoding="async"></a>
+          <figcaption>Conversa na sessão de pôsteres</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-palestra" data-group="Palestras|Retratos|Eventos">
+          <a class="view-photo" href="../foto-perfil.jpg" download="Ernandes-Sobreira-palestra.jpg" aria-label="Ampliar foto — Ao microfone"><img class="gallery-image" src="fotos/mini/palestra.jpg" width="393" height="700" alt="Ernandes fala ao microfone diante de um mural azul." style="--focus:50% 43%" loading="lazy" decoding="async"></a>
+          <figcaption>Ao microfone</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-equipe-cop" data-group="Comunidade|Eventos">
+          <a class="view-photo" href="fotos/equipe-cop.jpg" download="Ernandes-Sobreira-equipe-cop.jpg" aria-label="Ampliar foto — Com participantes da COP Pantanal"><img class="gallery-image" src="fotos/mini/equipe-cop.jpg" width="360" height="800" alt="Ernandes posa ao ar livre com três participantes e o mascote da COP Pantanal, em Cáceres." style="--focus:50% 23%" loading="lazy" decoding="async"></a>
+          <figcaption>Com participantes da COP Pantanal</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-selfie-mirante" data-group="Selfies|Retratos">
+          <a class="view-photo" href="fotos/selfie-mirante.jpg" download="Ernandes-Sobreira-selfie-mirante.jpg" aria-label="Ampliar foto — Selfie com a serra ao fundo"><img class="gallery-image" src="fotos/mini/selfie-mirante.jpg" width="601" height="800" alt="Ernandes de óculos escuros, ao sol, com a serra e a copa das árvores atrás dele." style="--focus:50% 43%" loading="lazy" decoding="async"></a>
+          <figcaption>Selfie com a serra ao fundo</figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-fala-auditorio" data-group="Palestras|Eventos">
+          <a class="view-photo" href="fotos/fala-auditorio.jpg" download="Ernandes-Sobreira-fala-auditorio.jpg" aria-label="Ampliar foto — Da tribuna para o auditório"><img class="gallery-image" src="fotos/mini/fala-auditorio.jpg" width="720" height="408" alt="A plateia acompanha a fala de Ernandes à tribuna, em dezembro de 2025." style="--focus:46% 42%" loading="lazy" decoding="async"></a>
+          <figcaption>Da tribuna para o auditório<small class="foto-detalhe"> Dez. 2025 · Quadro de vídeo</small></figcaption>
+        </figure>
+        <figure class="gallery-item" id="foto-poster-fisica-ambiental" data-group="Comunidade|Eventos">
+          <a class="view-photo" href="fotos/poster-fisica-ambiental.jpg" download="Ernandes-Sobreira-poster-fisica-ambiental.jpg" aria-label="Ampliar foto — Semana Brasileira de Física Ambiental"><img class="gallery-image" src="fotos/mini/poster-fisica-ambiental.jpg" width="600" height="800" alt="Ernandes e uma participante ao lado de dois pôsteres de pesquisa, em outubro de 2026." style="--focus:50% 36%" loading="lazy" decoding="async"></a>
+          <figcaption>Semana Brasileira de Física Ambiental</figcaption>
+        </figure>
         <figure class="gallery-item" id="foto-retrato-na-mata" data-group="Retratos">
           <a class="view-photo" href="fotos/retrato-na-mata.jpg" download="Ernandes-Sobreira-retrato-na-mata.jpg" aria-label="Ampliar foto — Retrato na mata"><img class="gallery-image" src="fotos/mini/retrato-na-mata.jpg" width="526" height="700" alt="Retrato de Ernandes de óculos e camiseta verde, com a mata ao fundo." style="--focus:50% 59%" loading="lazy" decoding="async"></a>
           <figcaption>Retrato na mata</figcaption>
-        </figure>
-        <figure class="gallery-item" id="foto-palestra" data-group="Retratos">
-          <a class="view-photo" href="../foto-perfil.jpg" download="Ernandes-Sobreira-palestra.jpg" aria-label="Ampliar foto — Ao microfone"><img class="gallery-image" src="fotos/mini/palestra.jpg" width="393" height="700" alt="Ernandes fala ao microfone diante de um mural azul." style="--focus:50% 43%" loading="lazy" decoding="async"></a>
-          <figcaption>Ao microfone</figcaption>
         </figure>
         <figure class="gallery-item" id="foto-camara-na-margem" data-group="Retratos">
           <a class="view-photo" href="fotos/camara-na-margem.jpg" download="Ernandes-Sobreira-camara-na-margem.jpg" aria-label="Ampliar foto — Com a câmara à margem da água"><img class="gallery-image" src="fotos/mini/camara-na-margem.jpg" width="650" height="488" alt="Pesquisador segura a câmara flutuante junto à água, com gado ao fundo." style="--focus:36% 44%" loading="lazy" decoding="async"></a>
@@ -216,7 +249,7 @@
           <figcaption>Uma amostra de solo</figcaption>
         </figure>
       </div>
-      <button class="btn gallery-more" id="gallery-more" type="button" aria-controls="photo-grid" aria-expanded="false" hidden>Ver as 16 fotos</button>
+      <button class="btn gallery-more" id="gallery-more" type="button" aria-controls="photo-grid" aria-expanded="false" hidden>Ver as 24 fotos</button>
       <p class="vh" role="status" id="gallery-status"></p>
     </div></section>
     <dialog class="viewer" id="photo-viewer" aria-labelledby="view-title">
@@ -335,7 +368,7 @@
     let expanded = false;
     let selectedCard = null;
     let opener = null;
-    const matchingCards = () => cards.filter(card => group === 'Todas' || card.dataset.group === group);
+    const matchingCards = () => cards.filter(card => group === 'Todas' || card.dataset.group.split('|').includes(group));
     function drawGallery() {
       const groupCards = matchingCards();
       const visible = expanded ? groupCards : groupCards.slice(0,previewLimit);
