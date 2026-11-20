@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1749b0">
+  <title>Ernandes Sobreira Oliveira Junior | Palestras e minicurrículo</title>
+  <meta name="description" content="Perfil de Ernandes Sobreira, biólogo e professor da UNEMAT. Minicurrículo, foto de divulgação, temas de palestra e contato institucional.">
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Ernandes Sobreira Oliveira Junior | Palestras">
+  <meta property="og:description" content="Minicurrículo, apresentação para o cerimonial e foto para divulgação.">
+  <meta property="og:image" content="https://ernandes-sobreira.github.io/meu-mundo/foto-perfil.jpg">
+  <meta property="og:image:alt" content="Ernandes falando ao microfone em uma palestra">
+  <meta property="og:url" content="https://ernandes-sobreira.github.io/meu-mundo/palestras/">
+  <link rel="canonical" href="https://ernandes-sobreira.github.io/meu-mundo/palestras/">
+  <style>
+    :root{color-scheme:light;--ink:#172b3b;--muted:#485c68;--blue:#1749b0;--line:#cbd6d9;--pale:#edf4f9;--yellow:#ffd04d;--paper:#fff;--serif:Spectral,Georgia,"Times New Roman",serif;--sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:1rem}
+    body{margin:0;color:var(--ink);background:var(--paper);font:1rem/1.56 var(--sans)}
+    a{color:var(--blue);text-underline-offset:.2em;text-decoration-thickness:.08em}
+    a:hover{color:#082d78}
+    a:focus-visible,button:focus-visible{outline:3px solid #b14a00;outline-offset:4px}
+    button{font:inherit;cursor:pointer}
+    .wrap{width:min(70rem,calc(100% - 3rem));margin-inline:auto}
+    .skip{position:absolute;top:.25rem;left:1rem;transform:translateY(-160%);background:#fff;padding:.6rem;z-index:2}
+    .skip:focus{transform:none}
+    .mast{border-bottom:1px solid var(--line)}
+    .mast .wrap,nav,.signature,.actions,.resources,.tools{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+    .mast .wrap{justify-content:space-between;padding-block:.95rem}
+    .signature{text-decoration:none;color:var(--ink);gap:.7rem}
+    .monogram{display:grid;place-items:center;width:2.45rem;height:2.45rem;border-radius:50%;color:#fff;background:var(--blue);font:italic 1.2rem var(--serif)}
+    .brand{font-weight:720;letter-spacing:-.045em;font-size:1.15rem}
+    .signature small{padding-left:.7rem;border-left:1px solid var(--line);color:var(--muted);font-size:.88rem}
+    nav{gap:1.35rem}
+    nav a{font-size:.91rem;font-weight:650;color:var(--ink);text-decoration:none}
+    nav a:hover,.signature:hover .brand{text-decoration:underline}
+    .hero{display:grid;grid-template-columns:1.3fr .86fr;gap:clamp(2rem,7vw,6rem);align-items:center;padding:clamp(2rem,5vw,4.1rem) 0}
+    .kicker{display:block;color:var(--blue);font-weight:780;font-size:.8rem;letter-spacing:.11em;text-transform:uppercase;margin:0 0 1.1rem}
+    h1,h2,h3,p,figure{margin:0}
+    h1,h2{font-family:var(--serif);font-weight:400;line-height:1.07;letter-spacing:-.05em}
+    h1{font-size:clamp(3.35rem,6.7vw,5.8rem)}
+    h1 span{display:block}
+    h1 .family{font-size:.75em;line-height:1.16;color:var(--blue)}
+    h2{font-size:clamp(2.12rem,3.7vw,3.3rem);max-width:20ch}
+    .lead{max-width:38rem;margin:1.5rem 0 1.6rem;font-size:clamp(1.05rem,1.5vw,1.22rem);color:#304653;line-height:1.55}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:.42rem;min-height:44px;padding:.61rem 1rem;font-size:.94rem;font-weight:700;text-decoration:none;line-height:1.35;border:1px solid var(--line);color:var(--ink);background:#fff}
+    .btn:hover{background:#f1f6ff;color:var(--blue);border-color:var(--blue)}
+    .primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+    .primary:hover{background:#103888;color:#fff}
+    .hero figure{margin-right:.55rem}
+    .photo-frame{aspect-ratio:1.04;position:relative;background:#d5e6ec;box-shadow:.55rem .55rem 0 var(--yellow)}
+    .photo-frame img{width:100%;height:100%;display:block;object-fit:cover;object-position:52% 47%}
+    figcaption{margin-top:1rem;color:var(--muted);font-size:.86rem}
+    .bio-band{background:var(--pale);border-block:1px solid #d8e3e8}
+    .split{display:grid;grid-template-columns:minmax(13rem,.75fr) minmax(0,1.4fr);gap:clamp(2rem,6vw,5.5rem);padding-block:clamp(2.5rem,5vw,4rem)}
+    .description{margin:1rem 0;max-width:27rem;color:var(--muted)}
+    .tools{align-items:stretch;gap:.3rem;flex-wrap:nowrap;max-width:100%;width:fit-content;margin-bottom:1.15rem;padding:.25rem;background:#dae7ef;border-radius:.5rem}
+    .tools button{border:0;background:transparent;border-radius:.33rem;font-size:.92rem;font-weight:700;padding:.6rem .9rem;min-height:44px;color:#344a58}
+    .tools button[aria-pressed="true"]{background:#fff;color:#103b8a;box-shadow:0 1px 4px #1d365823}
+    .bio-box{background:#fff;border-left:4px solid var(--blue);padding:1.3rem 1.5rem}
+    .bio-box h3,.small-head{font:700 .87rem var(--sans);color:var(--blue);margin-bottom:.55rem}
+    .bio-box p{font-family:var(--serif);font-size:clamp(1.18rem,1.8vw,1.45rem);line-height:1.52}
+    .bio-box + .bio-box{margin-top:.75rem}
+    .actions{gap:.7rem}
+    .bio-actions{margin-top:1rem}
+    .status{font-size:.94rem;color:#173b67;min-height:1.55em;margin-top:.45rem}
+    .topics{padding-block:clamp(2.6rem,5vw,4.1rem)}
+    .topic-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(2rem,6vw,5.5rem);margin-top:1.5rem}
+    .topic{padding:1.2rem 0 1.35rem;border-top:1px solid var(--line)}
+    .topic h3,.event h3{font:500 1.46rem/1.22 var(--serif);letter-spacing:-.032em}
+    .topic p,.event p{margin-top:.55rem;color:var(--muted);max-width:60ch}
+    .trajectory{border-top:1px solid var(--line)}
+    .timeline{list-style:none;padding:0;margin:0 0 1.6rem}
+    .timeline li{display:grid;grid-template-columns:7.6rem 1fr;gap:.9rem;padding:.75rem 0;border-bottom:1px solid var(--line)}
+    .timeline li:first-child{padding-top:0}
+    .timeline strong{font-size:.91rem;color:var(--blue)}
+    .event{border-left:.25rem solid var(--yellow);padding-left:1rem}
+    .event a{display:inline-block;margin-top:.5rem}
+    footer{background:#e8effa;border-top:1px solid #c8d7ea;padding:2.8rem 0 2.4rem}
+    footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+    footer h2{font-size:2.3rem;margin-bottom:.7rem}
+    .email{font-weight:720;overflow-wrap:anywhere}
+    .resources{gap:.6rem 1.15rem}
+    .resources a{font-size:.96rem;font-weight:600}
+    .endtools{margin-top:1rem}
+    .endtools .btn{font-size:.88rem}
+    [hidden]{display:none!important}
+    @media(max-width:770px){.hero{grid-template-columns:1.18fr .82fr;gap:1.3rem}.split{grid-template-columns:1fr;gap:1.3rem}.split .description{max-width:none;margin-bottom:0}h2{max-width:none}.photo-frame{aspect-ratio:.75}.timeline li{grid-template-columns:7rem 1fr}}
+    @media(max-width:580px){.wrap{width:calc(100% - 2.2rem)}.mast .wrap{gap:.65rem;padding-block:.65rem}nav{gap:1rem}.signature small{display:none}.hero{grid-template-columns:1fr;padding-top:2rem;gap:1.5rem}.hero figure{margin-right:.45rem}.photo-frame{aspect-ratio:1.46}.photo-frame img{object-position:50% 46%}figcaption{margin-top:.8rem}.kicker{margin-bottom:.75rem}.topic-grid,footer .wrap{grid-template-columns:1fr}.topic-grid{gap:0}.bio-box{padding:1rem 1.1rem}.tools button{padding:.48rem .65rem}footer .wrap{gap:1.5rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media print{@page{size:A4;margin:18mm}body{font:10.8pt/1.45 Arial,sans-serif;color:#111}.wrap{width:100%}.mast,.skip,.actions,.tools,.endtools,.status,.hero figcaption,.description,.bio-box h3,.event a{display:none!important}.hero{display:grid;grid-template-columns:1fr 3cm;gap:1cm;padding:0 0 .5cm}.hero .lead{margin:.3cm 0;font-size:11pt}.hero h1{font-size:32pt}.hero .kicker{font-size:8pt}.photo-frame{box-shadow:none;aspect-ratio:.8}.bio-band,.trajectory,footer{background:white}.split,.topics,footer{display:block;padding:.4cm 0}.bio-box{border:none;padding:0}.bio-box p{font:11pt/1.45 Arial,sans-serif}.bio-box+.bio-box{margin:0}#cerimonial{display:none!important}#programacao[hidden]{display:block!important}h2,footer h2{font-size:17pt;margin-bottom:.2cm}.topic-grid{gap:0 .65cm;margin:0}.topic{padding:.18cm 0}.topic h3,.event h3{font-size:12pt}.topic p,.event p{margin:.08cm 0;font-size:10pt}.timeline{margin:0 0 .25cm}.timeline li{padding:.08cm 0;grid-template-columns:3cm 1fr}.timeline strong{font-size:10pt}footer .wrap{display:block}.resources{margin-top:.15cm}.small-head{display:none}.event,.topic{break-inside:avoid}a{color:#123869}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="mast"><div class="wrap">
+    <a class="signature" href="#conteudo"><span class="monogram" aria-hidden="true">es</span><span class="brand">Meu Mundo</span><small>Palestras</small></a>
+    <nav aria-label="Navegação principal"><a href="#minicurriculo">Minicurrículo</a><a href="#temas">Temas</a><a href="#contato">Contato</a></nav>
+  </div></header>
+  <main id="conteudo">
+    <section class="hero wrap" aria-labelledby="nome">
+      <div>
+        <p class="kicker">UNEMAT · Cáceres, Mato Grosso</p>
+        <h1 id="nome"><span>Ernandes Sobreira</span> <span class="family">Oliveira Junior</span></h1>
+        <p class="lead">Sou biólogo e professor da Universidade do Estado de Mato Grosso. No Pantanal, estudo como as cheias e as secas mudam as trocas de carbono entre a água e a atmosfera. Também investigo o ar que respiramos na época das queimadas.</p>
+        <div class="actions"><a class="btn primary" href="#minicurriculo">Usar minicurrículo</a><a class="btn" id="foto-download" href="../foto-perfil.jpg" download="Ernandes-Sobreira-foto.jpg">Baixar foto</a></div>
+      </div>
+      <figure><div class="photo-frame"><img id="retrato" src="../foto-perfil.jpg" width="825" height="1468" alt="Ernandes Sobreira fala ao microfone diante de um mural colorido."></div><figcaption>Foto para divulgação de palestras e conferências.</figcaption></figure>
+    </section>
+    <section class="bio-band" id="minicurriculo" aria-labelledby="bio-title"><div class="split wrap">
+      <div><h2 id="bio-title">Minicurrículo para eventos</h2><p class="description">Escolha o texto para a abertura da palestra ou para a programação do evento.</p></div>
+      <div>
+        <div class="tools" role="group" aria-label="Escolher texto" hidden><button type="button" aria-controls="cerimonial" aria-pressed="true">Para o cerimonial</button><button type="button" aria-controls="programacao" aria-pressed="false">Para o programa</button></div>
+        <article class="bio-box" id="cerimonial"><h3>Leitura de cerca de 30 segundos</h3><p>Recebemos hoje Ernandes Sobreira Oliveira Junior, biólogo e professor da Universidade do Estado de Mato Grosso, em Cáceres. Ernandes estuda como as cheias e as secas alteram as emissões de gases nas baías do Pantanal e como a fumaça das queimadas afeta quem vive na região. É doutor pela Universidade Radboud, nos Países Baixos, e fez pós-doutorado em Saúde Pública na Fiocruz.</p></article>
+        <article class="bio-box" id="programacao"><h3>Minicurrículo para divulgação</h3><p>Ernandes Sobreira Oliveira Junior é biólogo e professor da Universidade do Estado de Mato Grosso (UNEMAT), em Cáceres. Licenciado em Ciências Biológicas pela UNEMAT, é mestre em Ecologia e Conservação da Biodiversidade pela UFMT, doutor em Ciência pela Universidade Radboud, nos Países Baixos, e realizou pós-doutorado em Saúde Pública na Fiocruz. Pesquisa a dinâmica das águas, os fluxos de dióxido de carbono e metano e a qualidade do ar no Pantanal, no Cerrado e na Amazônia. Atua na formação de pesquisadores e na divulgação científica. Em 2025, coordenou a primeira COP Pantanal, em Cáceres.</p></article>
+        <div class="actions bio-actions"><button id="copy-bio" type="button" class="btn primary" hidden>Copiar apresentação</button><a class="btn" id="pdf-download" href="Ernandes-Sobreira-minicurriculo.pdf" download="Ernandes-Sobreira-minicurriculo.pdf">Baixar minicurrículo em PDF</a></div>
+        <p class="status" id="bio-status" role="status"></p>
+      </div>
+    </div></section>
+    <section class="topics wrap" id="temas" aria-labelledby="temas-title">
+      <h2 id="temas-title">Temas de palestra</h2>
+      <div class="topic-grid">
+        <article class="topic"><h3>O que muda quando uma baía do Pantanal seca?</h3><p>No projeto Lake-C, as medições de CO₂ e metano nas baías de Poconé ajudam a investigar como o pulso de inundação altera as trocas de carbono com a atmosfera.</p></article>
+        <article class="topic"><h3>Quem respira a fumaça das queimadas?</h3><p>O que medimos quando falamos de partículas finas no ar e por que a exposição à fumaça importa para escolas, comunidades e equipes de saúde.</p></article>
+        <article class="topic"><h3>Quem participa das decisões sobre o clima?</h3><p>A experiência da COP Pantanal em Cáceres como ponto de partida para conversar sobre justiça climática, saberes locais e participação pública.</p></article>
+        <article class="topic"><h3>Do campo à sala de aula</h3><p>Como transformar uma pergunta sobre um rio, uma lagoa ou o ar da escola em uma investigação, da escolha dos pontos de coleta à interpretação dos dados.</p></article>
+      </div>
+    </section>
+    <section class="trajectory" aria-labelledby="trajetoria"><div class="wrap split">
+      <div><h2 id="trajetoria">Trajetória</h2><p class="description">Na UNEMAT, atua na pós-graduação em Ciências Ambientais e em Gestão e Regulação de Recursos Hídricos (ProfÁgua).</p></div>
+      <div>
+        <ul class="timeline">
+          <li><strong>Pós-doutorado</strong><span>Saúde Pública · Fundação Oswaldo Cruz (Fiocruz)</span></li>
+          <li><strong>Doutorado</strong><span>Ciência · Universidade Radboud, Nijmegen, Países Baixos</span></li>
+          <li><strong>Mestrado</strong><span>Ecologia e Conservação da Biodiversidade · UFMT</span></li>
+          <li><strong>Licenciatura</strong><span>Ciências Biológicas · UNEMAT</span></li>
+        </ul>
+        <article class="event"><h3>COP Pantanal · Cáceres, 2025</h3><p>Coordenou a primeira edição do encontro, que reuniu pesquisadores, escolas, povos indígenas, comunidades tradicionais e gestores para discutir ações pelo clima.</p><a href="https://sinop.unemat.br/noticias/11-11-2025-mais-de-2-mil-pessoas-participam-da-cop-pantanal-em-caceres">Ler a reportagem da UNEMAT</a></article>
+      </div>
+    </div></section>
+  </main>
+  <footer id="contato"><div class="wrap">
+    <div><h2>Convites e contato</h2><a class="email" href="mailto:ernandes@unemat.br">ernandes@unemat.br</a></div>
+    <div><p class="small-head">Currículo e produção científica</p><div class="resources"><a href="https://lattes.cnpq.br/7461346615427709">Currículo Lattes</a><a href="https://orcid.org/0000-0002-6953-6917">ORCID</a><a href="https://scholar.google.com.br/citations?user=4vXRVKsAAAAJ&amp;hl=pt-BR">Google Acadêmico</a></div>
+      <div class="actions endtools"><button type="button" class="btn" id="copy-link" hidden>Copiar link do perfil</button><button type="button" class="btn" id="save-html" hidden>Baixar perfil em HTML</button></div>
+      <p class="status" id="file-status" role="status"></p>
+    </div>
+  </div></footer>
+  <script>
+    const select = id => document.getElementById(id);
+    const switches = [...document.querySelectorAll('.tools button')];
+    const canonical = document.querySelector('link[rel="canonical"]').href;
+    let current = 'cerimonial';
+    function showBio(id) {
+      current = id;
+      for (const button of switches) {
+        const selected = button.getAttribute('aria-controls') === id;
+        button.setAttribute('aria-pressed', String(selected));
+        select(button.getAttribute('aria-controls')).hidden = !selected;
+      }
+      select('copy-bio').textContent = id === 'cerimonial' ? 'Copiar apresentação' : 'Copiar minicurrículo';
+      select('bio-status').textContent = '';
+    }
+    document.querySelector('.tools').hidden = false;
+    for (const button of switches) button.onclick = () => showBio(button.getAttribute('aria-controls'));
+    for (const id of ['copy-bio','copy-link','save-html']) select(id).hidden = false;
+    showBio('cerimonial');
+    async function copy(text, status, success) {
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('clipboard');
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const box = document.createElement('textarea');
+        box.value = text;
+        box.readOnly = true;
+        box.setAttribute('aria-label','Texto para copiar');
+        box.style.cssText = 'position:fixed;top:0;left:-10000px';
+        document.body.append(box);
+        const focus = document.activeElement;
+        box.select();
+        let ok = false;
+        try { ok = document.execCommand('copy'); } catch {}
+        box.remove();
+        focus?.focus({ preventScroll:true });
+        if (!ok) {
+          window.prompt('Selecione e copie o texto abaixo.', text);
+          status.textContent = 'Texto disponível para cópia manual.';
+          return;
+        }
+      }
+      status.textContent = success;
+    }
+    select('copy-bio').onclick = () => copy(select(current).querySelector('p').textContent,select('bio-status'),'Texto copiado.');
+    select('copy-link').onclick = () => copy(canonical,select('file-status'),'Link público copiado.');
+    function asDataURL(blob) {
+      return new Promise((resolve,reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(reader.error);
+        reader.readAsDataURL(blob);
+      });
+    }
+    async function embed(url) {
+      if (url.startsWith('data:')) return url;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('arquivo');
+      return asDataURL(await response.blob());
+    }
+    const portrait = select('retrato');
+    if (portrait.src.startsWith('data:')) select('foto-download').href = portrait.src;
+    select('save-html').onclick = async () => {
+      const button = select('save-html');
+      const status = select('file-status');
+      button.disabled = true;
+      try {
+        const [photo,pdf] = await Promise.all([embed(portrait.src),embed(select('pdf-download').href)]);
+        const page = document.documentElement.cloneNode(true);
+        page.querySelector('#retrato').src = photo;
+        page.querySelector('#foto-download').setAttribute('href',new URL('../foto-perfil.jpg',canonical).href);
+        page.querySelector('#pdf-download').href = pdf;
+        page.querySelector('#save-html').disabled = false;
+        page.querySelectorAll('.bio-box').forEach(node => node.hidden = false);
+        page.querySelectorAll('.tools,#copy-bio,#copy-link,#save-html').forEach(node => node.hidden = true);
+        page.querySelectorAll('.status').forEach(node => node.textContent = '');
+        const url = URL.createObjectURL(new Blob(['<!doctype html>\n',page.outerHTML],{type:'text/html;charset=utf-8'}));
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Ernandes-Sobreira.html';
+        document.body.append(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url),60000);
+        status.textContent = 'HTML com foto pronto para salvar.';
+      } catch {
+        status.textContent = 'Não foi possível baixar o perfil. Verifique a conexão e tente novamente.';
+      } finally { button.disabled = false; }
+    };
+  </script>
+</body>
+</html>
